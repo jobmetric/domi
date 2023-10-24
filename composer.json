@@ -1,0 +1,57 @@
+{
+    "name": "jobmetric/domi",
+    "description": "A full-stack framework for Laravel that takes the hassle out of building dynamic pages.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "jobmetric",
+        "package",
+        "dom",
+        "domi"
+    ],
+    "homepage": "https://doc.jobmetric.net/package/domi",
+    "authors": [
+        {
+            "name": "Majid Mohammadian",
+            "email": "majeedmohammadian@gmail.com",
+            "homepage": "https://www.linkedin.com/in/majidmohammadian/",
+            "role": "Full Stack Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.0.1",
+        "ext-json": "*",
+        "laravel/framework": ">=9.19"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "JobMetric\\Domi\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JobMetric\\Domi\\DomiServiceProvider"
+            ],
+            "aliases": {
+                "JDomi": "JobMetric\\Domi\\Facades\\JDomi"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "support": {
+        "issues": "https://github.com/jobmetric/domi/issues",
+        "forum": "https://twitter.com/jobmetric",
+        "source": "https://github.com/jobmetric/domi"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/majidmohammadian"
+        }
+    ]
+}
