@@ -38,7 +38,7 @@
                 "JobMetric\\Domi\\DomiServiceProvider"
             ],
             "aliases": {
-                "JDomi": "JobMetric\\Domi\\Facades\\JDomi"
+                "Domi": "JobMetric\\Domi\\Facades\\Domi"
             }
         }
     },

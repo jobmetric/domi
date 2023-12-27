@@ -11,7 +11,7 @@ composer require jobmetric/domi
 ```
 
 ### Publish the config
-Copy the `config` file from `vendor/jobmetric/domi/config/config.php` to `config` folder of your Laravel application and rename it to `j-domi.php`
+Copy the `config` file from `vendor/jobmetric/domi/config/config.php` to `config` folder of your Laravel application and rename it to `domi.php`
 
 Run the following command to publish the package config file:
 
