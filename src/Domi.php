@@ -45,13 +45,5 @@ class Domi
     public function __construct(Application $app)
     {
         $this->app = $app;
-
-        if(config()->has('domi.logo')) {
-            $this->logo = config('domi.logo');
-        }
-
-        if(config()->has('domi.favicon')) {
-            $this->favicon = config('domi.favicon');
-        }
     }
 }
