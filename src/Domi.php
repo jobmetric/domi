@@ -53,13 +53,5 @@ class Domi
         if(config()->has('domi.favicon')) {
             $this->favicon = config('domi.favicon');
         }
-
-        if(config()->has('domi.pwa.theme_color')) {
-            $this->theme_color = config('domi.pwa.theme_color');
-        }
-
-        if(config()->has('domi.pwa.background_color')) {
-            $this->background_color = config('domi.pwa.background_color');
-        }
     }
 }
