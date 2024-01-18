@@ -3,10 +3,12 @@
 namespace JobMetric\Domi\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
+use JobMetric\PackageCore\Commands\ConsoleTools;
 
 class CreateViewCommand extends Command
 {
+    use ConsoleTools;
+
     /**
      * The name and signature of the console command.
      *
@@ -23,16 +25,6 @@ class CreateViewCommand extends Command
     protected $description = 'Create a new view extend by base layout Domi';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return int
@@ -40,61 +32,29 @@ class CreateViewCommand extends Command
     public function handle(): int
     {
         $view = $this->argument('view');
-        $path = $this->viewPath($view);
 
-        if (File::exists($path)) {
-            $this->alertExist();
+        $parts = explode('.', $view);
+        $file = array_pop($parts);
+        $path = implode('/', $parts);
+
+        $file_path = 'views/' . str_replace('.', '/', $view) . '.blade.php';
+
+        if ($this->isFile(resource_path($file_path))) {
+            $this->message("View <options=bold>$file_path</> already exists.", 'error');
 
             return 1;
         }
-        $this->createDir($path);
 
-        File::put($path, file_get_contents(realpath(__DIR__.'/stubs/blank.blade.php.stub')));
+        $content = $this->getStub(__DIR__ . "/stub/blank.blade");
 
-        $this->alertCreate($path);
+        if (!$this->isDir(resource_path("views/$path"))) {
+            $this->makeDir(resource_path("views/$path"));
+        }
+
+        $this->putFile(resource_path("views/$path/$file.blade.php"), $content);
+
+        $this->message("View <options=bold>[$path/$file.blade.php]</> created successfully.", "success");
 
         return 0;
-    }
-
-    /**
-     * Get the view full path.
-     *
-     * @param string $view
-     *
-     * @return string
-     */
-    public function viewPath(string $view): string
-    {
-        $file = str_replace('.', '/', $view).'.blade.php';
-
-        return "resources/views/{$file}";
-    }
-
-    /**
-     * Create view directory if not exists.
-     *
-     * @param $path
-     *
-     * @return void
-     */
-    public function createDir($path): void
-    {
-        if (!file_exists(dirname($path))) {
-            mkdir(dirname($path), 0777, true);
-        }
-    }
-
-    public function alertCreate(string $path): void
-    {
-        $this->newLine();
-        $this->line("  <bg=blue> INFO </> View [{$path}] created successfully.");
-        $this->newLine();
-    }
-
-    public function alertExist(): void
-    {
-        $this->newLine();
-        $this->line("  <bg=red> ERROR </> View already exists.");
-        $this->newLine();
     }
 }

@@ -1,0 +1,13 @@
+@extends('domi::layout')
+
+@section('content')
+    /* Your html code is here. */
+@endsection
+
+@section('script')
+    /* Your script code is here. */
+@endsection
+
+@section('style')
+    /* Your style code is here. */
+@endsection
