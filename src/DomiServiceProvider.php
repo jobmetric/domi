@@ -2,7 +2,10 @@
 
 namespace JobMetric\Domi;
 
+use Illuminate\Support\Facades\Blade;
 use JobMetric\Domi\Console\Commands\CreateViewCommand;
+use JobMetric\Domi\Providers\EventServiceProvider;
+use JobMetric\PackageCore\Enums\RegisterClassTypeEnum;
 use JobMetric\PackageCore\Exceptions\AssetFolderNotFoundException;
 use JobMetric\PackageCore\Exceptions\RegisterClassTypeNotFoundException;
 use JobMetric\PackageCore\Exceptions\ViewFolderNotFoundException;
@@ -24,6 +27,14 @@ class DomiServiceProvider extends PackageCoreServiceProvider
             ->hasView()
             ->hasAsset()
             ->registerCommand(CreateViewCommand::class)
-            ->registerClass('Domi', Domi::class);
+            ->registerClass('event', EventServiceProvider::class, RegisterClassTypeEnum::REGISTER())
+            ->registerClass('Domi', Domi::class, RegisterClassTypeEnum::SINGLETON());
+    }
+
+    public function afterBootPackage(): void
+    {
+        Blade::directive('domi', function ($expression) {
+            return app('Domi')->call($expression);
+        });
     }
 }
