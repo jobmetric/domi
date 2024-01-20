@@ -2,13 +2,16 @@
 
 namespace JobMetric\Domi\Listeners;
 
-use JobMetric\Domi\Facades\Domi;
 use JobMetric\Domi\Events\InitDomiEvent;
 
 class InitThemeListener
 {
     /**
      * Handle the event.
+     *
+     * @param InitDomiEvent $event
+     *
+     * @return void
      */
     public function handle(InitDomiEvent $event): void
     {
