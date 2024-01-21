@@ -10,10 +10,18 @@ use Illuminate\Support\Facades\Facade;
  * @method static string title()
  * @method static void setDescription(string $title)
  * @method static string description()
- * @method static void setMeta(array $meta)
- * @method static array meta()
- * @method static void setLink(string $link)
- * @method static string link()
+ * @method static void setKeywords(string $keywords)
+ * @method static string keywords()
+ * @method static void setCanonical(string $url)
+ * @method static string canonical()
+ * @method static void setRobots(string $robots)
+ * @method static string robots()
+ * @method static void setLink(string $link, string $rel)
+ * @method static array link()
+ * @method static void setStyle(string $href, string $rel = 'stylesheet', string $media = null)
+ * @method static array style()
+ * @method static void setScript(string $src, string $type = 'application/javascript', bool $async = false, bool $defer = false)
+ * @method static array script()
  *
  * @see \JobMetric\Domi\Domi
  */

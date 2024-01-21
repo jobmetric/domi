@@ -48,6 +48,7 @@ class Domi
     public function call(string $method): mixed
     {
         $method = trim($method, "'");
+
         if (str_starts_with($method, 'set')) {
             throw new CallMethodNotFoundException($method);
         } else {
@@ -102,44 +103,146 @@ class Domi
     }
 
     /**
-     * set meta
+     * set keywords
      *
-     * @param array $meta
+     * @param string $keywords
      * @return void
      */
-    public function setMeta(array $meta): void
+    public function setKeywords(string $keywords): void
     {
-        $this->dom['meta'] = $meta;
+        $this->dom['keywords'] = $keywords;
     }
 
     /**
-     * get meta
+     * get keywords
      *
      * @return array
      */
-    public function meta(): array
+    public function keywords(): array
     {
-        return $this->dom['meta'];
+        return $this->dom['keywords'];
+    }
+
+    /**
+     * set canonical
+     *
+     * @param string $url
+     * @return void
+     */
+    public function setCanonical(string $url): void
+    {
+        $this->dom['canonical'] = $url;
+    }
+
+    /**
+     * get canonical
+     *
+     * @return string
+     */
+    public function canonical(): string
+    {
+        return $this->dom['canonical'];
+    }
+
+    /**
+     * set robots
+     *
+     * @param string $robots
+     * @return void
+     */
+    public function setRobots(string $robots): void
+    {
+        $this->dom['robots'] = $robots;
+    }
+
+    /**
+     * get robots
+     *
+     * @return string
+     */
+    public function robots(): string
+    {
+        return $this->dom['robots'];
     }
 
     /**
      * set link
      *
      * @param string $link
+     * @param string $rel
      * @return void
      */
-    public function setLink(string $link): void
+    public function setLink(string $link, string $rel): void
     {
-        $this->dom['link'] = $link;
+        $this->dom['link'][md5($link)] = [
+            'link' => $link,
+            'rel' => $rel
+        ];
     }
 
     /**
      * get link
      *
-     * @return string
+     * @return array
      */
-    public function link(): string
+    public function link(): array
     {
         return $this->dom['link'];
+    }
+
+    /**
+     * set style
+     *
+     * @param string $href
+     * @param string $rel
+     * @param string|null $media
+     * @return void
+     */
+    public function setStyle(string $href, string $rel = 'stylesheet', string $media = null): void
+    {
+        $this->dom['style'][md5($href)] = [
+            'href' => $href,
+            'rel' => $rel,
+            'media' => $media
+        ];
+    }
+
+    /**
+     * get style
+     *
+     * @return array
+     */
+    public function style(): array
+    {
+        return $this->dom['style'];
+    }
+
+    /**
+     * set script
+     *
+     * @param string $src
+     * @param string $type
+     * @param bool $async
+     * @param bool $defer
+     * @return void
+     */
+    public function setScript(string $src, string $type = 'application/javascript', bool $async = false, bool $defer = false): void
+    {
+        $this->dom['script'][md5($src)] = [
+            'src' => $src,
+            'type' => $type,
+            'async' => $async,
+            'defer' => $defer
+        ];
+    }
+
+    /**
+     * get script
+     *
+     * @return array
+     */
+    public function script(): array
+    {
+        return $this->dom['script'];
     }
 }
