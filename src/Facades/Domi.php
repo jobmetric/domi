@@ -24,6 +24,9 @@ use Illuminate\Support\Facades\Facade;
  * @method static array script()
  * @method static void setLocalize(string $key = null, array $l10n = [])
  * @method static array localize()
+ * @method static void setPlugin(string $key, callable $function)
+ * @method static void setPlugins(...$parameters)
+ * @method static array plugin()
  *
  * @see \JobMetric\Domi\Domi
  */

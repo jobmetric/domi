@@ -4,8 +4,10 @@ namespace JobMetric\Domi;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
+use JobMetric\Domi\Events\AddPluginEvent;
 use JobMetric\Domi\Events\InitDomiEvent;
 use JobMetric\Domi\Exceptions\CallMethodNotFoundException;
+use JobMetric\Domi\Exceptions\SetPluginNotFoundException;
 
 class Domi
 {
@@ -286,5 +288,56 @@ class Domi
     public function localize(): array
     {
         return $this->dom['localize'];
+    }
+
+    /**
+     * set plugin
+     *
+     * @param string $key
+     * @param callable $function
+     * @return void
+     */
+    public function setPlugin(string $key, callable $function): void
+    {
+        $this->dom['plugin'][$key] = $function;
+    }
+
+    /**
+     * set plugins
+     *
+     * @param mixed ...$parameters
+     * @return void
+     * @throws SetPluginNotFoundException
+     */
+    public function setPlugins(...$parameters): void
+    {
+        $plugins = require realpath(__DIR__.'/../data/plugins.php');
+        foreach($plugins as $key => $func) {
+            $this->setPlugin($key, $func);
+        }
+
+        event(new AddPluginEvent);
+
+        foreach($parameters as $parameter) {
+            if(!isset($this->dom['plugin_counter'][$parameter])) {
+                $this->dom['plugin_counter'][$parameter] = true;
+
+                if(isset($this->dom['plugins'][$parameter])) {
+                    $this->dom['plugins'][$parameter]();
+                } else {
+                    throw new SetPluginNotFoundException($parameter);
+                }
+            }
+        }
+    }
+
+    /**
+     * get plugin
+     *
+     * @return array
+     */
+    public function plugin(): array
+    {
+        return $this->dom['plugin'];
     }
 }
