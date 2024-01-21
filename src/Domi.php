@@ -424,4 +424,25 @@ class Domi
     {
         return $this->dom['theme_color'];
     }
+
+    /**
+     * set page type
+     *
+     * @param string $type
+     * @return void
+     */
+    public function setPageType(string $type = 'website'): void
+    {
+        $this->dom['page_type'] = $type;
+    }
+
+    /**
+     * get page type
+     *
+     * @return string
+     */
+    public function pageType(): string
+    {
+        return $this->dom['page_type'];
+    }
 }

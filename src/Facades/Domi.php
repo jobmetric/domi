@@ -35,6 +35,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static string favicon()
  * @method static void setThemeColor(string $color)
  * @method static string themeColor()
+ * @method static void setPageType(string $type = 'website')
+ * @method static string pageType()
  *
  * @see \JobMetric\Domi\Domi
  */
