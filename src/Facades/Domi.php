@@ -6,9 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static mixed get(Model $model, string $key = null, string $locale = null)
- * @method static void store(Model $model, array $data = [])
- * @method static void delete(Model $model, string $locale = null)
+ * @method static void setTitle(string $title)
+ * @method static string title()
+ * @method static void setDescription(string $title)
+ * @method static string description()
+ * @method static void setMeta(array $meta)
+ * @method static array meta()
+ * @method static void setLink(string $link)
+ * @method static string link()
  *
  * @see \JobMetric\Domi\Domi
  */
