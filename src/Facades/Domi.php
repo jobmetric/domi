@@ -28,7 +28,9 @@ use Illuminate\Support\Facades\Facade;
  * @method static void setPlugins(...$parameters)
  * @method static array plugin()
  * @method static void setLogo(string $logo)
- * @method static array logo()
+ * @method static string logo()
+ * @method static void setFavicon(string $favicon)
+ * @method static string favicon()
  *
  * @see \JobMetric\Domi\Domi
  */

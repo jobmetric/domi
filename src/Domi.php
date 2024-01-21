@@ -361,4 +361,25 @@ class Domi
     {
         return $this->dom['logo'];
     }
+
+    /**
+     * set favicon
+     *
+     * @param string $favicon
+     * @return void
+     */
+    public function setFavicon(string $favicon): void
+    {
+        $this->dom['favicon'] = $favicon;
+    }
+
+    /**
+     * get favicon
+     *
+     * @return string
+     */
+    public function favicon(): string
+    {
+        return $this->dom['favicon'];
+    }
 }
