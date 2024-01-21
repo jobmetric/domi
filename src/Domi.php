@@ -340,4 +340,25 @@ class Domi
     {
         return $this->dom['plugin'];
     }
+
+    /**
+     * set logo
+     *
+     * @param string $logo
+     * @return void
+     */
+    public function setLogo(string $logo): void
+    {
+        $this->dom['logo'] = $logo;
+    }
+
+    /**
+     * get logo
+     *
+     * @return string
+     */
+    public function logo(): string
+    {
+        return $this->dom['logo'];
+    }
 }
