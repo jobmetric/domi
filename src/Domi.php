@@ -245,4 +245,46 @@ class Domi
     {
         return $this->dom['script'];
     }
+
+    /**
+     * set localize
+     *
+     * @param string|null $key
+     * @param array $l10n
+     * @return void
+     */
+    public function setLocalize(string $key = null, array $l10n = []): void
+    {
+        if($key) {
+            foreach($l10n as $index => $value) {
+                if(!is_scalar($value)) {
+                    continue;
+                }
+
+                if($value === true) {
+                    $l10n[$index] = true;
+                } else if($value === false) {
+                    $l10n[$index] = false;
+                } else {
+                    $l10n[$index] = html_entity_decode((string)$value, ENT_QUOTES, 'UTF-8');
+                }
+            }
+
+            if(isset($this->dom['localize'][$key])) {
+                $this->dom['localize'][$key] = array_merge_recursive($this->dom['localize'][$key], $l10n);
+            } else {
+                $this->dom['localize'][$key] = $l10n;
+            }
+        }
+    }
+
+    /**
+     * get localize
+     *
+     * @return array
+     */
+    public function localize(): array
+    {
+        return $this->dom['localize'];
+    }
 }

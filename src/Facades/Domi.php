@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static array style()
  * @method static void setScript(string $src, string $type = 'application/javascript', bool $async = false, bool $defer = false)
  * @method static array script()
+ * @method static void setLocalize(string $key = null, array $l10n = [])
+ * @method static array localize()
  *
  * @see \JobMetric\Domi\Domi
  */
