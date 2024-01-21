@@ -382,4 +382,25 @@ class Domi
     {
         return $this->dom['favicon'];
     }
+
+    /**
+     * set theme color
+     *
+     * @param string $color
+     * @return void
+     */
+    public function setThemeColor(string $color): void
+    {
+        $this->dom['theme_color'] = $color;
+    }
+
+    /**
+     * get theme color
+     *
+     * @return string
+     */
+    public function themeColor(): string
+    {
+        return $this->dom['theme_color'];
+    }
 }
