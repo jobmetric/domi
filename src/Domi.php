@@ -342,6 +342,27 @@ class Domi
     }
 
     /**
+     * set template
+     *
+     * @param string $template
+     * @return void
+     */
+    public function setTemplate(string $template): void
+    {
+        $this->dom['template'] = $template;
+    }
+
+    /**
+     * get template
+     *
+     * @return string
+     */
+    public function template(): string
+    {
+        return $this->dom['template'];
+    }
+
+    /**
      * set logo
      *
      * @param string $logo
