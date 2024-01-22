@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static string description()
  * @method static void setKeywords(string $keywords)
  * @method static string keywords()
+ * @method static void setAuthor(string $author)
+ * @method static string author()
  * @method static void setCanonical(string $url)
  * @method static string canonical()
  * @method static void setRobots(string $robots)

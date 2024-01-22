@@ -126,6 +126,27 @@ class Domi
     }
 
     /**
+     * set author for author meta tag
+     *
+     * @param string $author
+     * @return void
+     */
+    public function setAuthor(string $author): void
+    {
+        $this->dom['author'] = $author;
+    }
+
+    /**
+     * get author for author meta tag
+     *
+     * @return string
+     */
+    public function author(): string
+    {
+        return $this->dom['author'];
+    }
+
+    /**
      * set canonical url for canonical meta tag
      *
      * @param string $url
