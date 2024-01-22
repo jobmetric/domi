@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'description' => env('DOMI_DESCRIPTION', 'Domi description'),
+    'description' => env('DOMI_DESCRIPTION', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -63,7 +63,18 @@ return [
     |
     */
 
-    'keywords' => env('DOMI_KEYWORDS', 'Domi keywords'),
+    'keywords' => env('DOMI_KEYWORDS', 'Job Metric'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Author
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which of the author you want
+    | to consider as the default for the website.
+    */
+
+    'author' => env('DOMI_AUTHOR', 'Job Metric'),
 
     /*
     |--------------------------------------------------------------------------
