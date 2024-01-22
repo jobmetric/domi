@@ -76,11 +76,11 @@ class Domi
     /**
      * get title for title tag
      *
-     * @return string
+     * @return string|null
      */
-    public function title(): string
+    public function title(): ?string
     {
-        return $this->dom['title'];
+        return $this->dom['title'] ?? null;
     }
 
     /**
@@ -97,11 +97,11 @@ class Domi
     /**
      * get description for description meta tag
      *
-     * @return string
+     * @return string|null
      */
-    public function description(): string
+    public function description(): ?string
     {
-        return $this->dom['description'];
+        return $this->dom['description'] ?? null;
     }
 
     /**
@@ -118,11 +118,11 @@ class Domi
     /**
      * get keywords for keywords meta tag
      *
-     * @return array
+     * @return string|null
      */
-    public function keywords(): array
+    public function keywords(): ?string
     {
-        return $this->dom['keywords'];
+        return $this->dom['keywords'] ?? null;
     }
 
     /**
@@ -139,11 +139,11 @@ class Domi
     /**
      * get author for author meta tag
      *
-     * @return string
+     * @return string|null
      */
-    public function author(): string
+    public function author(): ?string
     {
-        return $this->dom['author'];
+        return $this->dom['author'] ?? null;
     }
 
     /**
@@ -160,11 +160,11 @@ class Domi
     /**
      * get canonical url for canonical meta tag
      *
-     * @return string
+     * @return string|null
      */
-    public function canonical(): string
+    public function canonical(): ?string
     {
-        return $this->dom['canonical'];
+        return $this->dom['canonical'] ?? null;
     }
 
     /**
@@ -181,11 +181,11 @@ class Domi
     /**
      * get robots data for robots meta tag
      *
-     * @return string
+     * @return string|null
      */
-    public function robots(): string
+    public function robots(): ?string
     {
-        return $this->dom['robots'];
+        return $this->dom['robots'] ?? null;
     }
 
     /**
@@ -210,7 +210,7 @@ class Domi
      */
     public function link(): array
     {
-        return $this->dom['link'];
+        return $this->dom['link'] ?? [];
     }
 
     /**
@@ -237,7 +237,7 @@ class Domi
      */
     public function style(): array
     {
-        return $this->dom['style'];
+        return $this->dom['style'] ?? [];
     }
 
     /**
@@ -266,7 +266,7 @@ class Domi
      */
     public function script(): array
     {
-        return $this->dom['script'];
+        return $this->dom['script'] ?? [];
     }
 
     /**
@@ -308,7 +308,7 @@ class Domi
      */
     public function localize(): array
     {
-        return $this->dom['localize'];
+        return $this->dom['localize'] ?? [];
     }
 
     /**
@@ -359,7 +359,7 @@ class Domi
      */
     public function plugin(): array
     {
-        return $this->dom['plugin'];
+        return $this->dom['plugin'] ?? [];
     }
 
     /**
@@ -376,11 +376,11 @@ class Domi
     /**
      * get template name
      *
-     * @return string
+     * @return string|null
      */
-    public function template(): string
+    public function template(): ?string
     {
-        return $this->dom['template'];
+        return $this->dom['template'] ?? null;
     }
 
     /**
@@ -397,11 +397,11 @@ class Domi
     /**
      * get logo path
      *
-     * @return string
+     * @return string|null
      */
-    public function logo(): string
+    public function logo(): ?string
     {
-        return $this->dom['logo'];
+        return $this->dom['logo'] ?? null;
     }
 
     /**
@@ -418,11 +418,11 @@ class Domi
     /**
      * get favicon path
      *
-     * @return string
+     * @return string|null
      */
-    public function favicon(): string
+    public function favicon(): ?string
     {
-        return $this->dom['favicon'];
+        return $this->dom['favicon'] ?? null;
     }
 
     /**
@@ -439,11 +439,11 @@ class Domi
     /**
      * get theme color for theme-color meta tag in mobile browsers
      *
-     * @return string
+     * @return string|null
      */
-    public function themeColor(): string
+    public function themeColor(): ?string
     {
-        return $this->dom['theme_color'];
+        return $this->dom['theme_color'] ?? null;
     }
 
     /**
@@ -464,10 +464,10 @@ class Domi
      * website, article, book, profile, music, video
      *
      * @see https://ogp.me/
-     * @return string
+     * @return string|null
      */
-    public function pageType(): string
+    public function pageType(): ?string
     {
-        return $this->dom['page_type'];
+        return $this->dom['page_type'] ?? null;
     }
 }
