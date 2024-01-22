@@ -41,7 +41,7 @@ class Domi
     }
 
     /**
-     * call method
+     * call method for Domi directive
      *
      * @param string $method
      * @return mixed
@@ -63,7 +63,7 @@ class Domi
     }
 
     /**
-     * set title
+     * set title for title tag
      *
      * @param string $title
      * @return void
@@ -74,7 +74,7 @@ class Domi
     }
 
     /**
-     * get title
+     * get title for title tag
      *
      * @return string
      */
@@ -84,7 +84,7 @@ class Domi
     }
 
     /**
-     * set description
+     * set description for description meta tag
      *
      * @param string $description
      * @return void
@@ -95,7 +95,7 @@ class Domi
     }
 
     /**
-     * get description
+     * get description for description meta tag
      *
      * @return string
      */
@@ -105,7 +105,7 @@ class Domi
     }
 
     /**
-     * set keywords
+     * set keywords for keywords meta tag
      *
      * @param string $keywords
      * @return void
@@ -116,7 +116,7 @@ class Domi
     }
 
     /**
-     * get keywords
+     * get keywords for keywords meta tag
      *
      * @return array
      */
@@ -126,7 +126,7 @@ class Domi
     }
 
     /**
-     * set canonical
+     * set canonical url for canonical meta tag
      *
      * @param string $url
      * @return void
@@ -137,7 +137,7 @@ class Domi
     }
 
     /**
-     * get canonical
+     * get canonical url for canonical meta tag
      *
      * @return string
      */
@@ -147,7 +147,7 @@ class Domi
     }
 
     /**
-     * set robots
+     * set robots data for robots meta tag
      *
      * @param string $robots
      * @return void
@@ -158,7 +158,7 @@ class Domi
     }
 
     /**
-     * get robots
+     * get robots data for robots meta tag
      *
      * @return string
      */
@@ -168,7 +168,7 @@ class Domi
     }
 
     /**
-     * set link
+     * set link data for link tag
      *
      * @param string $link
      * @param string $rel
@@ -183,7 +183,7 @@ class Domi
     }
 
     /**
-     * get link
+     * get link data for link tag
      *
      * @return array
      */
@@ -193,7 +193,7 @@ class Domi
     }
 
     /**
-     * set style
+     * set style data for style tag
      *
      * @param string $href
      * @param string $rel
@@ -210,7 +210,7 @@ class Domi
     }
 
     /**
-     * get style
+     * get style data for style tag
      *
      * @return array
      */
@@ -220,7 +220,7 @@ class Domi
     }
 
     /**
-     * set script
+     * set script data for script tag
      *
      * @param string $src
      * @param string $type
@@ -239,7 +239,7 @@ class Domi
     }
 
     /**
-     * get script
+     * get script data for script tag
      *
      * @return array
      */
@@ -249,7 +249,7 @@ class Domi
     }
 
     /**
-     * set localize
+     * set localize data
      *
      * @param string|null $key
      * @param array $l10n
@@ -257,22 +257,22 @@ class Domi
      */
     public function setLocalize(string $key = null, array $l10n = []): void
     {
-        if($key) {
-            foreach($l10n as $index => $value) {
-                if(!is_scalar($value)) {
+        if ($key) {
+            foreach ($l10n as $index => $value) {
+                if (!is_scalar($value)) {
                     continue;
                 }
 
-                if($value === true) {
+                if ($value === true) {
                     $l10n[$index] = true;
-                } else if($value === false) {
+                } else if ($value === false) {
                     $l10n[$index] = false;
                 } else {
                     $l10n[$index] = html_entity_decode((string)$value, ENT_QUOTES, 'UTF-8');
                 }
             }
 
-            if(isset($this->dom['localize'][$key])) {
+            if (isset($this->dom['localize'][$key])) {
                 $this->dom['localize'][$key] = array_merge_recursive($this->dom['localize'][$key], $l10n);
             } else {
                 $this->dom['localize'][$key] = $l10n;
@@ -281,7 +281,7 @@ class Domi
     }
 
     /**
-     * get localize
+     * get localize data
      *
      * @return array
      */
@@ -291,7 +291,7 @@ class Domi
     }
 
     /**
-     * set plugin
+     * set plugin by key and function
      *
      * @param string $key
      * @param callable $function
@@ -303,7 +303,7 @@ class Domi
     }
 
     /**
-     * set plugins
+     * set plugins by parameters
      *
      * @param mixed ...$parameters
      * @return void
@@ -311,18 +311,18 @@ class Domi
      */
     public function setPlugins(...$parameters): void
     {
-        $plugins = require realpath(__DIR__.'/../data/plugins.php');
-        foreach($plugins as $key => $func) {
+        $plugins = require realpath(__DIR__ . '/../data/plugins.php');
+        foreach ($plugins as $key => $func) {
             $this->setPlugin($key, $func);
         }
 
         event(new AddPluginEvent);
 
-        foreach($parameters as $parameter) {
-            if(!isset($this->dom['plugin_counter'][$parameter])) {
+        foreach ($parameters as $parameter) {
+            if (!isset($this->dom['plugin_counter'][$parameter])) {
                 $this->dom['plugin_counter'][$parameter] = true;
 
-                if(isset($this->dom['plugins'][$parameter])) {
+                if (isset($this->dom['plugins'][$parameter])) {
                     $this->dom['plugins'][$parameter]();
                 } else {
                     throw new SetPluginNotFoundException($parameter);
@@ -342,7 +342,7 @@ class Domi
     }
 
     /**
-     * set template
+     * set template name
      *
      * @param string $template
      * @return void
@@ -353,7 +353,7 @@ class Domi
     }
 
     /**
-     * get template
+     * get template name
      *
      * @return string
      */
@@ -363,7 +363,7 @@ class Domi
     }
 
     /**
-     * set logo
+     * set logo path
      *
      * @param string $logo
      * @return void
@@ -374,7 +374,7 @@ class Domi
     }
 
     /**
-     * get logo
+     * get logo path
      *
      * @return string
      */
@@ -384,7 +384,7 @@ class Domi
     }
 
     /**
-     * set favicon
+     * set favicon path
      *
      * @param string $favicon
      * @return void
@@ -395,7 +395,7 @@ class Domi
     }
 
     /**
-     * get favicon
+     * get favicon path
      *
      * @return string
      */
@@ -405,7 +405,7 @@ class Domi
     }
 
     /**
-     * set theme color
+     * set theme color for theme-color meta tag in mobile browsers
      *
      * @param string $color
      * @return void
@@ -416,7 +416,7 @@ class Domi
     }
 
     /**
-     * get theme color
+     * get theme color for theme-color meta tag in mobile browsers
      *
      * @return string
      */
@@ -426,8 +426,10 @@ class Domi
     }
 
     /**
-     * set page type
+     * set page type for open graph
+     * website, article, book, profile, music, video
      *
+     * @see https://ogp.me/
      * @param string $type
      * @return void
      */
@@ -437,8 +439,10 @@ class Domi
     }
 
     /**
-     * get page type
+     * get page type for open graph
+     * website, article, book, profile, music, video
      *
+     * @see https://ogp.me/
      * @return string
      */
     public function pageType(): string
