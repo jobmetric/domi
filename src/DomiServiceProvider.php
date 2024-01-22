@@ -34,7 +34,7 @@ class DomiServiceProvider extends PackageCoreServiceProvider
     public function afterBootPackage(): void
     {
         Blade::directive('domi', function ($expression) {
-            return app('Domi')->call($expression);
+            return "<?php echo \\JobMetric\\Domi\\Facades\\Domi::call($expression); ?>";
         });
     }
 }
