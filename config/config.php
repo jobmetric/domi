@@ -31,6 +31,42 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Default Title
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which of the title you want
+    | to consider as the default for the website.
+    |
+    */
+
+    'title' => env('DOMI_TITLE', 'Domi'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Description
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which of the description you want
+    | to consider as the default for the website.
+    |
+    */
+
+    'description' => env('DOMI_DESCRIPTION', 'Domi description'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Keywords
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which of the keywords you want
+    | to consider as the default for the website.
+    |
+    */
+
+    'keywords' => env('DOMI_KEYWORDS', 'Domi keywords'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Default Page Type
     |--------------------------------------------------------------------------
     |
