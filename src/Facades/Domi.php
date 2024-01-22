@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * @method static mixed call(string $method)
  * @method static void setTitle(string $title)
  * @method static string title()
  * @method static void setDescription(string $title)
