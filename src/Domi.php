@@ -81,7 +81,7 @@ class Domi
     }
 
     /**
-     * set site name
+     * set site name for title tag
      *
      * @param string $siteName
      * @return void

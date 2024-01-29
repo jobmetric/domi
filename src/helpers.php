@@ -3,6 +3,19 @@
 use JobMetric\Domi\Enums\PageTypeEnum;
 use JobMetric\Domi\Facades\Domi;
 
+if (!function_exists('DomiSiteName')) {
+    /**
+     * set site name for title tag
+     *
+     * @param string $siteName
+     * @return void
+     */
+    function DomiSiteName(string $siteName): void
+    {
+        Domi::setSiteName($siteName);
+    }
+}
+
 if (!function_exists('DomiTitle')) {
     /**
      * set title for title tag
