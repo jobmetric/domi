@@ -68,6 +68,10 @@
 <body class="@domi('bodyClass')">
 @yield('content')
 
+<script type="text/javascript">
+    var localize = @domi('renderLocalize')
+
+</script>
 @yield('script')
 
 </body>

@@ -157,10 +157,10 @@ if (!function_exists('DomiLocalize')) {
      * set localize data for localize script variable
      *
      * @param string|null $key
-     * @param array $l10n
+     * @param array|string $l10n
      * @return void
      */
-    function DomiLocalize(string $key = null, array $l10n = []): void
+    function DomiLocalize(string $key = null, array|string $l10n = []): void
     {
         Domi::setLocalize($key, $l10n);
     }

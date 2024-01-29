@@ -333,24 +333,28 @@ class Domi
      * set localize data for localize script variable
      *
      * @param string|null $key
-     * @param array $l10n
+     * @param array|string $l10n
      * @return void
      */
-    public function setLocalize(string $key = null, array $l10n = []): void
+    public function setLocalize(string $key = null, array|string $l10n = []): void
     {
         if ($key) {
-            foreach ($l10n as $index => $value) {
-                if (!is_scalar($value)) {
-                    continue;
-                }
+            if(is_array($l10n)) {
+                foreach ($l10n as $index => $value) {
+                    if (!is_scalar($value)) {
+                        continue;
+                    }
 
-                if ($value === true) {
-                    $l10n[$index] = true;
-                } else if ($value === false) {
-                    $l10n[$index] = false;
-                } else {
-                    $l10n[$index] = html_entity_decode((string)$value, ENT_QUOTES, 'UTF-8');
+                    if ($value === true) {
+                        $l10n[$index] = true;
+                    } else if ($value === false) {
+                        $l10n[$index] = false;
+                    } else {
+                        $l10n[$index] = html_entity_decode((string)$value, ENT_QUOTES, 'UTF-8');
+                    }
                 }
+            } else {
+                $l10n = html_entity_decode($l10n, ENT_QUOTES, 'UTF-8');
             }
 
             if (isset($this->dom['localize'][$key])) {
@@ -369,6 +373,16 @@ class Domi
     public function localize(): array
     {
         return $this->dom['localize'] ?? [];
+    }
+
+    /**
+     * render localize data
+     *
+     * @return string
+     */
+    public function renderLocalize(): string
+    {
+        return json_encode($this->localize(), JSON_UNESCAPED_UNICODE);
     }
 
     /**
