@@ -1,5 +1,8 @@
 <?php
 
+use JobMetric\Domi\Enums\PageTypeEnum;
+use JobMetric\Domi\Enums\RobotsEnum;
+
 return [
 
     /*
@@ -51,7 +54,7 @@ return [
     |
     */
 
-    'description' => env('DOMI_DESCRIPTION', ''),
+    'description' => env('DOMI_DESCRIPTION', 'Job Metric'),
 
     /*
     |--------------------------------------------------------------------------
@@ -63,7 +66,7 @@ return [
     |
     */
 
-    'keywords' => env('DOMI_KEYWORDS', 'Job Metric'),
+    'keywords' => env('DOMI_KEYWORDS', 'Job Metric, Domi'),
 
     /*
     |--------------------------------------------------------------------------
@@ -87,6 +90,38 @@ return [
     | @see string JobMetric\Domi\Enums\RobotsEnum
     */
 
+    'robots' => env('DOMI_ROBOTS', RobotsEnum::INDEX() . ',' . RobotsEnum::FOLLOW()),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Logo
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which of the logo you want
+    */
+
+    'logo' => env('DOMI_LOGO', ''),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Favicon
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which of the favicon you want
+    */
+
+    'favicon' => env('DOMI_FAVICON', ''),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Theme Color
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which of the theme color you want
+    */
+
+    'theme_color' => env('DOMI_THEME_COLOR', '#fff'),
+
     /*
     |--------------------------------------------------------------------------
     | Default Page Type
@@ -98,6 +133,6 @@ return [
     | @see string JobMetric\Domi\Enums\PageTypeEnum
     */
 
-    'page_type' => env('DOMI_PAGE_TYPE', 'website'),
+    'page_type' => env('DOMI_PAGE_TYPE', PageTypeEnum::WEBSITE()),
 
 ];
