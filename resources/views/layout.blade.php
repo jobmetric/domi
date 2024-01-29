@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ trans('domi:base.lang') }}"@if(trans('domi:base.direction') == 'rtl') direction="rtl" style="direction: rtl;"@endif>
+<html lang="{{ trans('domi::base.lang') }}"@if(trans('domi::base.direction') == 'rtl') direction="rtl" style="direction: rtl;"@endif>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +13,38 @@
 <title>@domi('title') | @domi('siteName')</title>
     @endif
 
+@isDomi('description')
     <meta name="description" content="@domi('description')">
+@endisDomi
+@isDomi('keywords')
     <meta name="keywords" content="@domi('keywords')">
+@endisDomi
+@isDomi('author')
     <meta name="author" content="@domi('author')">
+@endisDomi
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Open Graph -->
+@isDomi('pageType')
     <meta property="og:type" content="@domi('pageType')">
+@endisDomi
+@isDomi('title')
     <meta property="og:title" content="@domi('title')">
+@endisDomi
+@isDomi('description')
     <meta property="og.description" content="@domi('description')">
+@endisDomi
+@isDomi('canonical')
     <meta property="og:url" content="@domi('canonical')">
+@endisDomi
+@isDomi('siteName')
     <meta property="og:site_name" content="@domi('siteName')">
+@endisDomi
+@isDomi('image')
     <meta property="og:image" content="@domi('image')"> <!-- 1200x630 -->
-
+@endisDomi
+@isDomi('favicon')
     <!-- Icons -->
     <link rel="shortcut icon" href="@domi('favicon')">
     <link rel="icon" href="@domi('favicon')"/>
@@ -41,13 +60,17 @@
     <link rel="apple-touch-icon" sizes="144x144" href="@domi('favicon')"/>
     <link rel="apple-touch-icon" sizes="120x120" href="@domi('favicon')"/>
     <link rel="apple-touch-icon" sizes="152x152" href="@domi('favicon')"/>
-
+@endisDomi
+@isDomi('themeColor')
     <meta name="theme-color" content="@domi('themeColor')">
 
     <!-- Windows 8 Tiles -->
     <meta name="msapplication-TileColor" content="@domi('themeColor')">
+@endisDomi
+@isDomi('image')
     <meta name="msapplication-TileImage" content="@domi('image')">
-
+@endisDomi
+@isDomi('image')
     <!-- Schema.org -->
     <script type="application/ld+json">
         {
@@ -61,17 +84,14 @@
             }]
         }
     </script>
-
+@endisDomi
     @yield('head')
 
 </head>
-<body class="@domi('bodyClass')">
+<body @isDomi('bodyClass')class="@domi('bodyClass')" @endisDomi>
 @yield('content')
 
-<script type="text/javascript">
-    var localize = @domi('renderLocalize')
-
-</script>
+<script type="text/javascript">var localize = @domi('renderLocalize')</script>
 @yield('script')
 
 </body>

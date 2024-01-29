@@ -81,12 +81,24 @@ class Domi
     }
 
     /**
+     * is valuable call method for Domi directive
+     *
+     * @param string $method
+     * @return bool
+     * @throws CallMethodNotFoundException
+     */
+    public function isCall(string $method): bool
+    {
+        return (bool)$this->call($method);
+    }
+
+    /**
      * set site name for title tag
      *
-     * @param string $siteName
+     * @param string|null $siteName
      * @return void
      */
-    public function setSiteName(string $siteName): void
+    public function setSiteName(string|null $siteName): void
     {
         $this->dom['site_name'] = $siteName;
     }
@@ -104,10 +116,10 @@ class Domi
     /**
      * set title for title tag
      *
-     * @param string $title
+     * @param string|null $title
      * @return void
      */
-    public function setTitle(string $title): void
+    public function setTitle(string|null $title): void
     {
         $this->dom['title'] = $title;
     }
@@ -125,10 +137,10 @@ class Domi
     /**
      * set description for description meta tag
      *
-     * @param string $description
+     * @param string|null $description
      * @return void
      */
-    public function setDescription(string $description): void
+    public function setDescription(string|null $description): void
     {
         $this->dom['description'] = $description;
     }
@@ -146,10 +158,10 @@ class Domi
     /**
      * set keywords for keywords meta tag
      *
-     * @param string $keywords
+     * @param string|null $keywords
      * @return void
      */
-    public function setKeywords(string $keywords): void
+    public function setKeywords(string|null $keywords): void
     {
         $this->dom['keywords'] = $keywords;
     }
@@ -167,10 +179,10 @@ class Domi
     /**
      * set image for page
      *
-     * @param string $url
+     * @param string|null $url
      * @return void
      */
-    public function setImage(string $url): void
+    public function setImage(string|null $url): void
     {
         $this->dom['image'] = $url;
     }
@@ -188,10 +200,10 @@ class Domi
     /**
      * set author for author meta tag
      *
-     * @param string $author
+     * @param string|null $author
      * @return void
      */
-    public function setAuthor(string $author): void
+    public function setAuthor(string|null $author): void
     {
         $this->dom['author'] = $author;
     }
@@ -209,10 +221,10 @@ class Domi
     /**
      * set canonical url for canonical meta tag
      *
-     * @param string $url
+     * @param string|null $url
      * @return void
      */
-    public function setCanonical(string $url): void
+    public function setCanonical(string|null $url): void
     {
         $this->dom['canonical'] = $url;
     }
@@ -230,10 +242,10 @@ class Domi
     /**
      * set robots data for robots meta tag
      *
-     * @param string $robots
+     * @param string|null $robots
      * @return void
      */
-    public function setRobots(string $robots): void
+    public function setRobots(string|null $robots): void
     {
         $this->dom['robots'] = $robots;
     }
@@ -439,10 +451,10 @@ class Domi
     /**
      * set template name
      *
-     * @param string $template
+     * @param string|null $template
      * @return void
      */
-    public function setTemplate(string $template): void
+    public function setTemplate(string|null $template): void
     {
         $this->dom['template'] = $template;
     }
@@ -460,10 +472,10 @@ class Domi
     /**
      * set logo path
      *
-     * @param string $logo
+     * @param string|null $logo
      * @return void
      */
-    public function setLogo(string $logo): void
+    public function setLogo(string|null $logo): void
     {
         $this->dom['logo'] = $logo;
     }
@@ -481,10 +493,10 @@ class Domi
     /**
      * set favicon path
      *
-     * @param string $favicon
+     * @param string|null $favicon
      * @return void
      */
-    public function setFavicon(string $favicon): void
+    public function setFavicon(string|null $favicon): void
     {
         $this->dom['favicon'] = $favicon;
     }
@@ -502,10 +514,10 @@ class Domi
     /**
      * set theme color for theme-color meta tag in mobile browsers
      *
-     * @param string $color
+     * @param string|null $color
      * @return void
      */
-    public function setThemeColor(string $color): void
+    public function setThemeColor(string|null $color): void
     {
         $this->dom['theme_color'] = $color;
     }
@@ -522,12 +534,12 @@ class Domi
 
     /**
      * set page type for open graph
-     * @param string $type
+     * @param string|null $type
      * @return void
      * @see PageTypeEnum
      * @see https://ogp.me/
      */
-    public function setPageType(string $type = 'website'): void
+    public function setPageType(string|null $type = 'website'): void
     {
         $this->dom['page_type'] = $type;
     }
@@ -547,10 +559,10 @@ class Domi
     /**
      * set body class
      *
-     * @param string $class
+     * @param string|null $class
      * @return void
      */
-    public function setBodyClass(string $class): void
+    public function setBodyClass(string|null $class): void
     {
         $this->dom['body_class'] = $class;
     }

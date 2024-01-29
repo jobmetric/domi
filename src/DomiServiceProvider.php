@@ -36,5 +36,9 @@ class DomiServiceProvider extends PackageCoreServiceProvider
         Blade::directive('domi', function ($expression) {
             return "<?php echo \\JobMetric\\Domi\\Facades\\Domi::call($expression); ?>";
         });
+
+        Blade::if('isDomi', function ($expression) {
+            return \JobMetric\Domi\Facades\Domi::isCall($expression);
+        });
     }
 }
