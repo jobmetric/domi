@@ -63,7 +63,7 @@
     </script>
 
     {{--{!! Domi::document()->getHeader() !!}--}}
-    @yield('style')
+    @yield('head')
 
 </head>
 <body class="{{--{{ Domi::document()->getBodyClass() }}--}}">

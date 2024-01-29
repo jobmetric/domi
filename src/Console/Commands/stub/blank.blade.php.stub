@@ -4,10 +4,10 @@
     /* Your html code is here. */
 @endsection
 
-@section('script')
-    /* Your script code is here. */
+@section('head')
+    /* Your head code is here. */
 @endsection
 
-@section('style')
-    /* Your style code is here. */
+@section('script')
+    /* Your script code is here. */
 @endsection
