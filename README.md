@@ -1,6 +1,6 @@
 # Domi
 
-A full-stack framework for Laravel that takes the hassle out of building dynamic pages.
+A `full-stack` framework for `Laravel` that takes the hassle out of building dynamic pages.
 
 ## Install via composer
 
