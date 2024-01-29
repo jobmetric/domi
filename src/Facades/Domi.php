@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static mixed call(string $method)
+ * @method static void setSiteName(string $siteName)
+ * @method static string|null siteName()
  * @method static void setTitle(string $title)
  * @method static string|null title()
  * @method static void setDescription(string $title)
