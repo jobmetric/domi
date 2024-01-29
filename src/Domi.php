@@ -42,6 +42,7 @@ class Domi
 
         // Default Domi
         $this->dom = [
+            'site_name' => config('domi.site_name'),
             'template' => config('domi.template'),
             'title' => config('domi.title'),
             'description' => config('domi.description'),
@@ -76,6 +77,27 @@ class Domi
                 throw new CallMethodNotFoundException($method);
             }
         }
+    }
+
+    /**
+     * set site name
+     *
+     * @param string $siteName
+     * @return void
+     */
+    public function setSiteName(string $siteName): void
+    {
+        $this->dom['site_name'] = $siteName;
+    }
+
+    /**
+     * get site name
+     *
+     * @return string|null
+     */
+    public function siteName(): ?string
+    {
+        return $this->dom['site_name'] ?? null;
     }
 
     /**

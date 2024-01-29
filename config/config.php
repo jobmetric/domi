@@ -22,6 +22,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Default Site Name
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which of the site name you want
+    |
+    */
+
+    'site_name' => env('DOMI_SITE_NAME', 'Job Metric'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Default Template Name
     |--------------------------------------------------------------------------
     |
@@ -75,6 +86,7 @@ return [
     |
     | Here you can specify which of the author you want
     | to consider as the default for the website.
+    |
     */
 
     'author' => env('DOMI_AUTHOR', 'Job Metric'),
@@ -88,6 +100,7 @@ return [
     | to consider as the default for the website.
     |
     | @see string JobMetric\Domi\Enums\RobotsEnum
+    | @see https://developers.google.com/search/reference/robots_meta_tag
     */
 
     'robots' => env('DOMI_ROBOTS', RobotsEnum::INDEX() . ',' . RobotsEnum::FOLLOW()),
@@ -98,6 +111,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you can specify which of the logo you want
+    |
     */
 
     'logo' => env('DOMI_LOGO', ''),
@@ -108,6 +122,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you can specify which of the favicon you want
+    |
     */
 
     'favicon' => env('DOMI_FAVICON', ''),
@@ -118,6 +133,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you can specify which of the theme color you want
+    |
     */
 
     'theme_color' => env('DOMI_THEME_COLOR', '#fff'),
@@ -131,6 +147,7 @@ return [
     | to consider as the default for the website.
     |
     | @see string JobMetric\Domi\Enums\PageTypeEnum
+    |
     */
 
     'page_type' => env('DOMI_PAGE_TYPE', PageTypeEnum::WEBSITE()),
