@@ -4,6 +4,7 @@ namespace JobMetric\Domi;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
+use JobMetric\Domi\Enums\PageTypeEnum;
 use JobMetric\Domi\Events\AddPluginEvent;
 use JobMetric\Domi\Events\InitDomiEvent;
 use JobMetric\Domi\Exceptions\CallMethodNotFoundException;
@@ -38,6 +39,21 @@ class Domi
 
         // Init Domi Service
         $this->app->make('events')->dispatch(new InitDomiEvent);
+
+        // Default Domi
+        $this->dom = [
+            'template' => config('domi.template'),
+            'title' => config('domi.title'),
+            'description' => config('domi.description'),
+            'keywords' => config('domi.keywords'),
+            'author' => config('domi.author'),
+            'robots' => config('domi.robots'),
+            'plugin' => config('domi.plugin'),
+            'logo' => config('domi.logo'),
+            'favicon' => config('domi.favicon'),
+            'theme_color' => config('domi.theme_color'),
+            'page_type' => config('domi.page_type'),
+        ];
     }
 
     /**
@@ -270,7 +286,7 @@ class Domi
     }
 
     /**
-     * set localize data
+     * set localize data for localize script variable
      *
      * @param string|null $key
      * @param array $l10n
@@ -448,11 +464,10 @@ class Domi
 
     /**
      * set page type for open graph
-     * website, article, book, profile, music, video
-     *
-     * @see https://ogp.me/
      * @param string $type
      * @return void
+     * @see PageTypeEnum
+     * @see https://ogp.me/
      */
     public function setPageType(string $type = 'website'): void
     {
