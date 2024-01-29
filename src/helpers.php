@@ -55,6 +55,19 @@ if (!function_exists('DomiKeywords')) {
     }
 }
 
+if (!function_exists('DomiImage')) {
+    /**
+     * set image for page
+     *
+     * @param string $url
+     * @return void
+     */
+    function DomiImage(string $url): void
+    {
+        Domi::setImage($url);
+    }
+}
+
 if (!function_exists('DomiAuthor')) {
     /**
      * set author for author meta tag
