@@ -44,6 +44,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static string|null themeColor()
  * @method static void setPageType(string $type = 'website')
  * @method static string|null pageType()
+ * @method static void setBodyClass(string $class)
+ * @method static string|null bodyClass()
  *
  * @see \JobMetric\Domi\Domi
  */

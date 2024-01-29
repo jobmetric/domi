@@ -167,4 +167,16 @@ return [
 
     'title_mode' => env('DOMI_TITLE_MODE', TitleModeEnum::BOTH()),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Default Body Class
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which of the body class you want
+    | to consider as the default for the website.
+    |
+    */
+
+    'body_class' => env('DOMI_BODY_CLASS', ''),
+
 ];

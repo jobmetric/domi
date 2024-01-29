@@ -62,13 +62,12 @@
         }
     </script>
 
-    {{--{!! Domi::document()->getHeader() !!}--}}
     @yield('head')
 
 </head>
-<body class="{{--{{ Domi::document()->getBodyClass() }}--}}">
+<body class="@domi('bodyClass')">
 @yield('content')
-{{--{!! Domi::document()->getFooter() !!}--}}
+
 @yield('script')
 
 </body>

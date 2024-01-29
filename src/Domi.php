@@ -54,6 +54,7 @@ class Domi
             'favicon' => config('domi.favicon'),
             'theme_color' => config('domi.theme_color'),
             'page_type' => config('domi.page_type'),
+            'body_class' => config('domi.body_class'),
         ];
     }
 
@@ -527,5 +528,26 @@ class Domi
     public function pageType(): ?string
     {
         return $this->dom['page_type'] ?? null;
+    }
+
+    /**
+     * set body class
+     *
+     * @param string $class
+     * @return void
+     */
+    public function setBodyClass(string $class): void
+    {
+        $this->dom['body_class'] = $class;
+    }
+
+    /**
+     * get body class
+     *
+     * @return string|null
+     */
+    public function bodyClass(): ?string
+    {
+        return $this->dom['body_class'] ?? null;
     }
 }
