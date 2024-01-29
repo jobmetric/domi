@@ -164,6 +164,27 @@ class Domi
     }
 
     /**
+     * set image for page
+     *
+     * @param string $url
+     * @return void
+     */
+    public function setImage(string $url): void
+    {
+        $this->dom['image'] = $url;
+    }
+
+    /**
+     * get image for page
+     *
+     * @return string|null
+     */
+    public function image(): ?string
+    {
+        return $this->dom['image'] ?? null;
+    }
+
+    /**
      * set author for author meta tag
      *
      * @param string $author

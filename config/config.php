@@ -2,6 +2,7 @@
 
 use JobMetric\Domi\Enums\PageTypeEnum;
 use JobMetric\Domi\Enums\RobotsEnum;
+use JobMetric\Domi\Enums\TitleModeEnum;
 
 return [
 
@@ -151,5 +152,19 @@ return [
     */
 
     'page_type' => env('DOMI_PAGE_TYPE', PageTypeEnum::WEBSITE()),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Title Mode
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which of the title mode you want
+    | to consider as the default for the website.
+    |
+    | @see string JobMetric\Domi\Enums\TitleModeEnum
+    |
+    */
+
+    'title_mode' => env('DOMI_TITLE_MODE', TitleModeEnum::BOTH()),
 
 ];

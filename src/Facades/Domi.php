@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static string|null description()
  * @method static void setKeywords(string $keywords)
  * @method static string|null keywords()
+ * @method static void setImage(string $url)
+ * @method static string|null image()
  * @method static void setAuthor(string $author)
  * @method static string|null author()
  * @method static void setCanonical(string $url)
