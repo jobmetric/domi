@@ -292,14 +292,18 @@ class Domi
      * @param string $href
      * @param string $rel
      * @param string|null $media
+     * @param string|null $integrity
+     * @param string|null $crossOrigin
      * @return void
      */
-    public function setStyle(string $href, string $rel = 'stylesheet', string $media = null): void
+    public function setStyle(string $href, string $rel = 'stylesheet', string $media = null, string $integrity = null, string $crossOrigin = null): void
     {
         $this->dom['style'][md5($href)] = [
             'href' => $href,
             'rel' => $rel,
-            'media' => $media
+            'media' => $media,
+            'integrity' => $integrity,
+            'crossOrigin' => $crossOrigin,
         ];
     }
 

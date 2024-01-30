@@ -128,11 +128,13 @@ if (!function_exists('DomiStyle')) {
      * @param string $href
      * @param string $rel
      * @param string|null $media
+     * @param string|null $integrity
+     * @param string|null $crossOrigin
      * @return void
      */
-    function DomiStyle(string $href, string $rel = 'stylesheet', string $media = null): void
+    function DomiStyle(string $href, string $rel = 'stylesheet', string $media = null, string $integrity = null, string $crossOrigin = null): void
     {
-        Domi::setStyle($href, $rel, $media);
+        Domi::setStyle($href, $rel, $media, $integrity, $crossOrigin);
     }
 }
 

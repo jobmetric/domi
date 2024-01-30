@@ -1,4 +1,5 @@
 @php
+    $styles = \JobMetric\Domi\Facades\Domi::style();
     $topScripts = \JobMetric\Domi\Facades\Domi::topScript();
     $bottomScripts = \JobMetric\Domi\Facades\Domi::bottomScript();
 @endphp
@@ -89,6 +90,11 @@
         }
     </script>
 @endisDomi
+
+    <!-- Styles -->
+@foreach($styles as $style)
+    <link {!! $style['rel'] ? 'rel="'.$style['rel'].'"' : '' !!} href="{{ $style['href'] }}"{!! $style['integrity'] ? ' integrity="'.$style['integrity'].'"' : '' !!}{!! $style['crossOrigin'] ? ' crossorigin="'.$style['crossOrigin'].'"' : '' !!}{!! $style['media'] ? ' media="'.$style['media'].'"' : '' !!}>
+@endforeach
 
     <!-- Top Script -->
 @foreach($topScripts as $script)
