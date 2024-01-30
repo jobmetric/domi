@@ -70,7 +70,7 @@
 @isDomi('image')
     <meta name="msapplication-TileImage" content="@domi('image')">
 @endisDomi
-@isDomi('image')
+@isDomi('pageType')
     <!-- Schema.org -->
     <script type="application/ld+json">
         {
