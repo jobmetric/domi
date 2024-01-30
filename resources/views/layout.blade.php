@@ -1,3 +1,7 @@
+@php
+    $topScripts = \JobMetric\Domi\Facades\Domi::topScript();
+    $bottomScripts = \JobMetric\Domi\Facades\Domi::bottomScript();
+@endphp
 <!DOCTYPE html>
 <html lang="{{ trans('domi::base.lang') }}"@if(trans('domi::base.direction') == 'rtl') direction="rtl" style="direction: rtl;"@endif>
 <head>
@@ -85,14 +89,24 @@
         }
     </script>
 @endisDomi
+
+    <!-- Top Script -->
+@foreach($topScripts as $script)
+    <script {!! $script['type'] ? 'type="'.$script['type'].'"' : '' !!} src="{{ $script['src'] }}"{{ $script['async'] ? ' async' : '' }}{{ $script['defer'] ? ' defer' : '' }}></script>
+@endforeach
+
     @yield('head')
 
 </head>
 <body @isDomi('bodyClass')class="@domi('bodyClass')" @endisDomi>
 @yield('content')
 
-<script type="text/javascript">var localize = @domi('renderLocalize')</script>
-@yield('script')
+    <script type="text/javascript">var localize = @domi('renderLocalize')</script>
+    <!-- Bottom Script -->
+@foreach($bottomScripts as $script)
+    <script {!! $script['type'] ? 'type="'.$script['type'].'"' : '' !!} src="{{ $script['src'] }}"{{ $script['async'] ? ' async' : '' }}{{ $script['defer'] ? ' defer' : '' }}></script>
+@endforeach
 
+@yield('script')
 </body>
 </html>

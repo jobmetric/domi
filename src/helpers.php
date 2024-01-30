@@ -144,11 +144,12 @@ if (!function_exists('DomiScript')) {
      * @param string $type
      * @param boolean $async
      * @param boolean $defer
+     * @param string $position
      * @return void
      */
-    function DomiScript(string $src, string $type = 'application/javascript', bool $async = false, bool $defer = false): void
+    function DomiScript(string $src, string $type = 'application/javascript', bool $async = false, bool $defer = false, string $position = 'bottom'): void
     {
-        Domi::setScript($src, $type, $async, $defer);
+        Domi::setScript($src, $type, $async, $defer, $position);
     }
 }
 

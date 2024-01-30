@@ -1,5 +1,6 @@
 <?php
 
+use JobMetric\Domi\Enums\ScriptPositionEnum;
 use JobMetric\Domi\Facades\Domi;
 
 return [
@@ -13,8 +14,8 @@ return [
     |
     */
 
-    'jquery'      => function () {
-        Domi::setScript('vendor/domi/plugins/jquery/jquery.min.js');
+    'jquery' => function () {
+        Domi::setScript('vendor/domi/plugins/jquery/jquery.min.js', position: ScriptPositionEnum::TOP());
     },
     'jquery.form' => function () {
         Domi::setScript('vendor/domi/plugins/jquery.form/jquery.form.min.js');
@@ -52,24 +53,24 @@ return [
 
         Domi::setLocalize('language', [
             'sweetalert' => [
-                'title'    => [
-                    'warning'    => trans('domi:base.sweetalert.title.warning'),
-                    'attention'  => trans('domi:base.sweetalert.title.attention'),
+                'title' => [
+                    'warning' => trans('domi:base.sweetalert.title.warning'),
+                    'attention' => trans('domi:base.sweetalert.title.attention'),
                     'permission' => trans('domi:base.sweetalert.title.permission'),
-                    'timer'      => trans('domi:base.sweetalert.option.timer'),
+                    'timer' => trans('domi:base.sweetalert.option.timer'),
                     'background' => trans('domi:base.sweetalert.option.background'),
                 ],
-                'button'   => [
-                    'realized'       => trans('domi:base.sweetalert.button.realized'),
-                    'got_it'         => trans('domi:base.sweetalert.button.got_it'),
+                'button' => [
+                    'realized' => trans('domi:base.sweetalert.button.realized'),
+                    'got_it' => trans('domi:base.sweetalert.button.got_it'),
                     'confirm_button' => trans('domi:base.sweetalert.button.ok'),
-                    'cancel_button'  => trans('domi:base.sweetalert.button.cancel'),
-                    'cancel'         => trans('domi:base.sweetalert.button.cancel'),
-                    'ok'             => trans('domi:base.sweetalert.button.ok'),
+                    'cancel_button' => trans('domi:base.sweetalert.button.cancel'),
+                    'cancel' => trans('domi:base.sweetalert.button.cancel'),
+                    'ok' => trans('domi:base.sweetalert.button.ok'),
                 ],
                 'position' => [
                     'center' => trans('domi:base.sweetalert.option.position.center'),
-                    'end'    => trans('domi:base.sweetalert.option.position.end'),
+                    'end' => trans('domi:base.sweetalert.option.position.end'),
                 ],
             ],
         ]);
@@ -85,21 +86,21 @@ return [
 
         Domi::setLocalize('language', [
             'datatable' => [
-                'processing'     => trans('domi:base.datatable.processing'),
-                'search'         => trans('domi:base.datatable.search'),
-                'lengthMenu'     => trans('domi:base.datatable.lengthMenu'),
-                'info'           => trans('domi:base.datatable.info'),
-                'infoEmpty'      => trans('domi:base.datatable.infoEmpty'),
-                'infoFiltered'   => trans('domi:base.datatable.infoFiltered'),
-                'infoPostFix'    => trans('domi:base.datatable.infoPostFix'),
+                'processing' => trans('domi:base.datatable.processing'),
+                'search' => trans('domi:base.datatable.search'),
+                'lengthMenu' => trans('domi:base.datatable.lengthMenu'),
+                'info' => trans('domi:base.datatable.info'),
+                'infoEmpty' => trans('domi:base.datatable.infoEmpty'),
+                'infoFiltered' => trans('domi:base.datatable.infoFiltered'),
+                'infoPostFix' => trans('domi:base.datatable.infoPostFix'),
                 'loadingRecords' => trans('domi:base.datatable.loadingRecords'),
-                'zeroRecords'    => trans('domi:base.datatable.zeroRecords'),
-                'emptyTable'     => trans('domi:base.datatable.emptyTable'),
-                'paginate'       => [
-                    'first'    => trans('domi:base.datatable.paginate_first'),
+                'zeroRecords' => trans('domi:base.datatable.zeroRecords'),
+                'emptyTable' => trans('domi:base.datatable.emptyTable'),
+                'paginate' => [
+                    'first' => trans('domi:base.datatable.paginate_first'),
                     'previous' => trans('domi:base.datatable.paginate_previous'),
-                    'next'     => trans('domi:base.datatable.paginate_next'),
-                    'last'     => trans('domi:base.datatable.paginate_last'),
+                    'next' => trans('domi:base.datatable.paginate_next'),
+                    'last' => trans('domi:base.datatable.paginate_last'),
                 ],
             ]
         ]);
@@ -114,7 +115,7 @@ return [
         Domi::setStyle('vendor/domi/plugins/select2/dist/css/select2.min.css');
         Domi::setScript('vendor/domi/plugins/select2/dist/js/select2.full.min.js');
 
-        Domi::setScript('vendor/domi/plugins/select2/dist/js/i18n/'.__('base.lang').'.js');
+        Domi::setScript('vendor/domi/plugins/select2/dist/js/i18n/' . __('base.lang') . '.js');
     },
     'tree' => function () {
         Domi::setStyle('vendor/domi/plugins/tree/tree.css');

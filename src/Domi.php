@@ -5,6 +5,7 @@ namespace JobMetric\Domi;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
 use JobMetric\Domi\Enums\PageTypeEnum;
+use JobMetric\Domi\Enums\ScriptPositionEnum;
 use JobMetric\Domi\Events\AddPluginEvent;
 use JobMetric\Domi\Events\InitDomiEvent;
 use JobMetric\Domi\Exceptions\CallMethodNotFoundException;
@@ -319,11 +320,12 @@ class Domi
      * @param string $type
      * @param bool $async
      * @param bool $defer
+     * @param string $position
      * @return void
      */
-    public function setScript(string $src, string $type = 'application/javascript', bool $async = false, bool $defer = false): void
+    public function setScript(string $src, string $type = 'application/javascript', bool $async = false, bool $defer = false, string $position = 'bottom'): void
     {
-        $this->dom['script'][md5($src)] = [
+        $this->dom['script'][$position][md5($src)] = [
             'src' => $src,
             'type' => $type,
             'async' => $async,
@@ -332,13 +334,23 @@ class Domi
     }
 
     /**
-     * get script data for script tag
+     * get top script data for script tag
      *
      * @return array
      */
-    public function script(): array
+    public function topScript(): array
     {
-        return $this->dom['script'] ?? [];
+        return $this->dom['script'][ScriptPositionEnum::TOP()] ?? [];
+    }
+
+    /**
+     * get bottom script data for script tag
+     *
+     * @return array
+     */
+    public function bottomScript(): array
+    {
+        return $this->dom['script'][ScriptPositionEnum::BOTTOM()] ?? [];
     }
 
     /**
@@ -406,7 +418,7 @@ class Domi
      */
     public function setPlugin(string $key, callable $function): void
     {
-        $this->dom['plugin'][$key] = $function;
+        $this->dom['plugins'][$key] = $function;
     }
 
     /**
@@ -419,17 +431,18 @@ class Domi
     public function setPlugins(...$parameters): void
     {
         $plugins = require realpath(__DIR__ . '/../data/plugins.php');
+
         foreach ($plugins as $key => $func) {
             $this->setPlugin($key, $func);
         }
 
         event(new AddPluginEvent);
 
-        foreach ($parameters as $parameter) {
+        foreach ($parameters[0] as $parameter) {
             if (!isset($this->dom['plugin_counter'][$parameter])) {
                 $this->dom['plugin_counter'][$parameter] = true;
 
-                if (isset($this->dom['plugins'][$parameter])) {
+                if (in_array($parameter, array_keys($this->dom['plugins']))) {
                     $this->dom['plugins'][$parameter]();
                 } else {
                     throw new SetPluginNotFoundException($parameter);
@@ -445,7 +458,7 @@ class Domi
      */
     public function plugin(): array
     {
-        return $this->dom['plugin'] ?? [];
+        return $this->dom['plugins'] ?? [];
     }
 
     /**
