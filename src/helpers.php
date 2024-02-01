@@ -111,13 +111,14 @@ if (!function_exists('DomiLink')) {
     /**
      * set link data for link tag
      *
+     * @param string $rel
      * @param string $href
      * @param array $items
      * @return void
      */
-    function DomiLink(string $href, array $items): void
+    function DomiLink(string $rel, string $href, array $items): void
     {
-        Domi::setLink($href, $items);
+        Domi::setLink($rel, $href, $items);
     }
 }
 
@@ -126,15 +127,14 @@ if (!function_exists('DomiStyle')) {
      * set style data for style tag
      *
      * @param string $href
-     * @param string $rel
      * @param string|null $media
      * @param string|null $integrity
      * @param string|null $crossOrigin
      * @return void
      */
-    function DomiStyle(string $href, string $rel = 'stylesheet', string $media = null, string $integrity = null, string $crossOrigin = null): void
+    function DomiStyle(string $href, string $media = null, string $integrity = null, string $crossOrigin = null): void
     {
-        Domi::setStyle($href, $rel, $media, $integrity, $crossOrigin);
+        Domi::setStyle($href, $media, $integrity, $crossOrigin);
     }
 }
 

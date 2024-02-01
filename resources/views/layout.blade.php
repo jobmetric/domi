@@ -1,5 +1,5 @@
 @php
-    $styles = \JobMetric\Domi\Facades\Domi::style();
+    $links = \JobMetric\Domi\Facades\Domi::link();
     $topScripts = \JobMetric\Domi\Facades\Domi::topScript();
     $bottomScripts = \JobMetric\Domi\Facades\Domi::bottomScript();
 @endphp
@@ -91,10 +91,19 @@
     </script>
 @endisDomi
 
-    <!-- Styles -->
-@foreach($styles as $style)
-    <link {!! $style['rel'] ? 'rel="'.$style['rel'].'"' : '' !!} href="{{ $style['href'] }}"{!! $style['integrity'] ? ' integrity="'.$style['integrity'].'"' : '' !!}{!! $style['crossOrigin'] ? ' crossorigin="'.$style['crossOrigin'].'"' : '' !!}{!! $style['media'] ? ' media="'.$style['media'].'"' : '' !!}>
+@php $themeLink = ''; @endphp
+@foreach($links as $rel => $linkObjects)
+    <!-- {{$rel}} -->
+  @foreach($linkObjects as $object)
+@php $themeLink .= '<link rel="'. $rel .'" href="' . $object['href'] . '"';$options = ''; @endphp
+@foreach($object['items'] as $itemName => $item)
+@isset($item)@php $options .= ' ' . $itemName . '="' . $item . '"'; @endphp@endisset
 @endforeach
+@php $themeLink .= $options . '>
+    ';@endphp
+@endforeach
+@endforeach
+  {!! $themeLink !!}
 
     <!-- Top Script -->
 @foreach($topScripts as $script)

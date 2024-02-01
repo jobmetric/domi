@@ -268,24 +268,25 @@ class Domi
     /**
      * set link data for link tag
      *
+     * @param string $rel
      * @param string $href
      * @param array $items
      * @return void
      * @throws Throwable
      */
-    public function setLink(string $href, array $items): void
+    public function setLink(string $rel, string $href, array $items): void
     {
         if(!Arr::isAssoc($items)) {
             throw new ArrayNotAssocException;
         }
 
         foreach ($items as $key => $value) {
-            if(!in_array($key, ['crossorigin', 'href', 'hreflang', 'media', 'referrerpolicy', 'rel', 'sizes', 'title', 'type'])) {
+            if(!in_array($key, ['crossorigin', 'href', 'hreflang', 'media', 'referrerpolicy', 'sizes', 'title', 'type', 'integrity'])) {
                 throw new InvalidKeyForLinkTagException;
             }
         }
 
-        $this->dom['link'][md5($href)] = [
+        $this->dom['link'][$rel][md5($href)] = [
             'href' => $href,
             'items' => $items
         ];
@@ -305,31 +306,19 @@ class Domi
      * set style data for style tag
      *
      * @param string $href
-     * @param string $rel
      * @param string|null $media
      * @param string|null $integrity
      * @param string|null $crossOrigin
      * @return void
+     * @throws Throwable
      */
-    public function setStyle(string $href, string $rel = 'stylesheet', string $media = null, string $integrity = null, string $crossOrigin = null): void
+    public function setStyle(string $href, string $media = null, string $integrity = null, string $crossOrigin = null): void
     {
-        $this->dom['style'][md5($href)] = [
-            'href' => $href,
-            'rel' => $rel,
+        $this->setLink('stylesheet', $href, [
             'media' => $media,
             'integrity' => $integrity,
-            'crossOrigin' => $crossOrigin,
-        ];
-    }
-
-    /**
-     * get style data for style tag
-     *
-     * @return array
-     */
-    public function style(): array
-    {
-        return $this->dom['style'] ?? [];
+            'crossorigin' => $crossOrigin,
+        ]);
     }
 
     /**
