@@ -111,13 +111,13 @@ if (!function_exists('DomiLink')) {
     /**
      * set link data for link tag
      *
-     * @param string $link
-     * @param string $rel
+     * @param string $href
+     * @param array $items
      * @return void
      */
-    function DomiLink(string $link, string $rel): void
+    function DomiLink(string $href, array $items): void
     {
-        Domi::setLink($link, $rel);
+        Domi::setLink($href, $items);
     }
 }
 

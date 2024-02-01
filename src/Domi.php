@@ -4,12 +4,16 @@ namespace JobMetric\Domi;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Support\Arr;
 use JobMetric\Domi\Enums\PageTypeEnum;
 use JobMetric\Domi\Enums\ScriptPositionEnum;
 use JobMetric\Domi\Events\AddPluginEvent;
 use JobMetric\Domi\Events\InitDomiEvent;
 use JobMetric\Domi\Exceptions\CallMethodNotFoundException;
+use JobMetric\Domi\Exceptions\InvalidKeyForLinkTagException;
 use JobMetric\Domi\Exceptions\SetPluginNotFoundException;
+use JobMetric\PackageCore\Exceptions\ArrayNotAssocException;
+use Throwable;
 
 class Domi
 {
@@ -264,15 +268,26 @@ class Domi
     /**
      * set link data for link tag
      *
-     * @param string $link
-     * @param string $rel
+     * @param string $href
+     * @param array $items
      * @return void
+     * @throws Throwable
      */
-    public function setLink(string $link, string $rel): void
+    public function setLink(string $href, array $items): void
     {
-        $this->dom['link'][md5($link)] = [
-            'link' => $link,
-            'rel' => $rel
+        if(!Arr::isAssoc($items)) {
+            throw new ArrayNotAssocException;
+        }
+
+        foreach ($items as $key => $value) {
+            if(!in_array($key, ['crossorigin', 'href', 'hreflang', 'media', 'referrerpolicy', 'rel', 'sizes', 'title', 'type'])) {
+                throw new InvalidKeyForLinkTagException;
+            }
+        }
+
+        $this->dom['link'][md5($href)] = [
+            'href' => $href,
+            'items' => $items
         ];
     }
 
@@ -367,7 +382,7 @@ class Domi
     public function setLocalize(string $key = null, array|string $l10n = []): void
     {
         if ($key) {
-            if(is_array($l10n)) {
+            if (is_array($l10n)) {
                 foreach ($l10n as $index => $value) {
                     if (!is_scalar($value)) {
                         continue;
