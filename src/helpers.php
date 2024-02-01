@@ -116,7 +116,7 @@ if (!function_exists('DomiLink')) {
      * @param array $items
      * @return void
      */
-    function DomiLink(string $rel, string $href, array $items): void
+    function DomiLink(string $rel, string $href, array $items = []): void
     {
         Domi::setLink($rel, $href, $items);
     }

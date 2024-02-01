@@ -94,7 +94,7 @@
 @php $themeLink = ''; @endphp
 @foreach($links as $rel => $linkObjects)
     <!-- {{$rel}} -->
-  @foreach($linkObjects as $object)
+@foreach($linkObjects as $object)
 @php $themeLink .= '<link rel="'. $rel .'" href="' . $object['href'] . '"';$options = ''; @endphp
 @foreach($object['items'] as $itemName => $item)
 @isset($item)@php $options .= ' ' . $itemName . '="' . $item . '"'; @endphp@endisset
@@ -102,8 +102,9 @@
 @php $themeLink .= $options . '>
     ';@endphp
 @endforeach
+    {!! $themeLink !!}
+@php $themeLink = ''; @endphp
 @endforeach
-  {!! $themeLink !!}
 
     <!-- Top Script -->
 @foreach($topScripts as $script)

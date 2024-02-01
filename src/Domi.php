@@ -6,11 +6,13 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Arr;
 use JobMetric\Domi\Enums\PageTypeEnum;
+use JobMetric\Domi\Enums\RelLinkEnum;
 use JobMetric\Domi\Enums\ScriptPositionEnum;
 use JobMetric\Domi\Events\AddPluginEvent;
 use JobMetric\Domi\Events\InitDomiEvent;
 use JobMetric\Domi\Exceptions\CallMethodNotFoundException;
-use JobMetric\Domi\Exceptions\InvalidKeyForLinkTagException;
+use JobMetric\Domi\Exceptions\InvalidAttributeForLinkTagException;
+use JobMetric\Domi\Exceptions\InvalidRelForLinkTagException;
 use JobMetric\Domi\Exceptions\SetPluginNotFoundException;
 use JobMetric\PackageCore\Exceptions\ArrayNotAssocException;
 use Throwable;
@@ -274,15 +276,19 @@ class Domi
      * @return void
      * @throws Throwable
      */
-    public function setLink(string $rel, string $href, array $items): void
+    public function setLink(string $rel, string $href, array $items = []): void
     {
-        if(!Arr::isAssoc($items)) {
+        if(!in_array($rel, RelLinkEnum::values())) {
+            throw new InvalidRelForLinkTagException($rel);
+        }
+
+        if(!Arr::isAssoc($items) && !empty($items)) {
             throw new ArrayNotAssocException;
         }
 
         foreach ($items as $key => $value) {
             if(!in_array($key, ['crossorigin', 'href', 'hreflang', 'media', 'referrerpolicy', 'sizes', 'title', 'type', 'integrity'])) {
-                throw new InvalidKeyForLinkTagException;
+                throw new InvalidAttributeForLinkTagException;
             }
         }
 

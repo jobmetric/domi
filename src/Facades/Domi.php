@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static string|null canonical()
  * @method static void setRobots(string|null $robots)
  * @method static string|null robots()
- * @method static void setLink(string $rel, string $href, array $items)
+ * @method static void setLink(string $rel, string $href, array $items = [])
  * @method static array link()
  * @method static void setStyle(string $href, string $media = null, string $integrity = null, string $crossOrigin = null)
  * @method static void setScript(string $src, string $type = 'application/javascript', bool $async = false, bool $defer = false, string $position = 'bottom')
