@@ -49,6 +49,7 @@
 @isDomi('image')
     <meta property="og:image" content="@domi('image')"> <!-- 1200x630 -->
 @endisDomi
+
 @isDomi('favicon')
     <!-- Icons -->
     <link rel="shortcut icon" href="@domi('favicon')">
@@ -109,7 +110,6 @@
 @foreach($topScripts as $script)
     <script {!! $script['type'] ? 'type="'.$script['type'].'"' : '' !!} src="{{ $script['src'] }}"{{ $script['async'] ? ' async' : '' }}{{ $script['defer'] ? ' defer' : '' }}></script>
 @endforeach
-
     @yield('head')
 
 </head>
