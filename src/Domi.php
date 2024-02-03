@@ -45,7 +45,7 @@ class Domi
         $this->app = $app;
 
         // Init Domi Service
-        $this->app->make('events')->dispatch(new InitDomiEvent);
+        $this->app->make('events')->dispatch(new InitDomiEvent($this));
 
         // Default Domi
         $this->dom = [
@@ -63,6 +63,9 @@ class Domi
             'page_type' => config('domi.page_type'),
             'body_class' => config('domi.body_class'),
         ];
+
+        // Set Domi
+        $this->setScript('assets/vendor/domi/domi.js');
     }
 
     /**
