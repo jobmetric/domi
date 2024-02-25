@@ -122,6 +122,7 @@
 @foreach($bottomScripts as $script)
     <script {!! $script['type'] ? 'type="'.$script['type'].'"' : '' !!} src="{{ $script['src'] }}"{{ $script['async'] ? ' async' : '' }}{{ $script['defer'] ? ' defer' : '' }}></script>
 @endforeach
+    @yield('script-bottom')
 
 </body>
 </html>
