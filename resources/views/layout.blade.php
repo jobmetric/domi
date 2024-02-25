@@ -4,7 +4,7 @@
     $bottomScripts = \JobMetric\Domi\Facades\Domi::bottomScript();
 @endphp
 <!DOCTYPE html>
-<html lang="{{ trans('domi::base.lang') }}"@if(trans('domi::base.direction') == 'rtl') direction="rtl" style="direction: rtl;"@endif>
+<html lang="{{ trans('domi::base.lang') }}"@if(trans('domi::base.direction') == 'rtl') direction="rtl" dir="rtl" style="direction: rtl;"@endif>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
