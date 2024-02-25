@@ -113,7 +113,7 @@
 @endforeach
 
 </head>
-<body @isDomi('bodyClass')class="@domi('bodyClass')" @endisDomi>
+<body @yield('body-attribute')>
 @yield('content')
 
     <script type="text/javascript">var localize = @domi('renderLocalize')</script>

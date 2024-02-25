@@ -246,16 +246,3 @@ if (!function_exists('DomiPageType')) {
         Domi::setPageType($type);
     }
 }
-
-if (!function_exists('DomiBodyClass')) {
-    /**
-     * set body class
-     *
-     * @param string|null $class
-     * @return void
-     */
-    function DomiBodyClass(string|null $class): void
-    {
-        Domi::setBodyClass($class);
-    }
-}
