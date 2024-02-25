@@ -92,6 +92,7 @@
     </script>
 @endisDomi
 
+    @yield('head')
 @php $themeLink = ''; @endphp
 @foreach($links as $rel => $linkObjects)
     <!-- {{$rel}} -->
@@ -110,7 +111,6 @@
 @foreach($topScripts as $script)
     <script {!! $script['type'] ? 'type="'.$script['type'].'"' : '' !!} src="{{ $script['src'] }}"{{ $script['async'] ? ' async' : '' }}{{ $script['defer'] ? ' defer' : '' }}></script>
 @endforeach
-    @yield('head')
 
 </head>
 <body @isDomi('bodyClass')class="@domi('bodyClass')" @endisDomi>
@@ -118,10 +118,10 @@
 
     <script type="text/javascript">var localize = @domi('renderLocalize')</script>
     <!-- Bottom Script -->
+    @yield('script')
 @foreach($bottomScripts as $script)
     <script {!! $script['type'] ? 'type="'.$script['type'].'"' : '' !!} src="{{ $script['src'] }}"{{ $script['async'] ? ' async' : '' }}{{ $script['defer'] ? ' defer' : '' }}></script>
 @endforeach
 
-@yield('script')
 </body>
 </html>
