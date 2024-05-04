@@ -15,40 +15,40 @@ return [
     */
 
     'jquery' => function () {
-        Domi::setScript('vendor/domi/plugins/jquery/jquery.min.js', position: ScriptPositionEnum::TOP());
+        Domi::setScript('assets/vendor/domi/plugins/jquery/jquery.min.js', position: ScriptPositionEnum::TOP());
     },
     'jquery.form' => function () {
-        Domi::setScript('vendor/domi/plugins/jquery.form/jquery.form.min.js');
+        Domi::setScript('assets/vendor/domi/plugins/jquery.form/jquery.form.min.js');
     },
     'jquery.ui' => function () {
-        Domi::setScript('vendor/domi/plugins/jquery-ui/jquery-ui.js');
+        Domi::setScript('assets/vendor/domi/plugins/jquery-ui/jquery-ui.js');
 
-        Domi::setStyle('vendor/domi/plugins/jquery-ui-bootstrap/jquery.ui.ie.css');
-        Domi::setStyle('vendor/domi/plugins/jquery-ui-bootstrap/jquery-ui.css');
+        Domi::setStyle('assets/vendor/domi/plugins/jquery-ui-bootstrap/jquery.ui.ie.css');
+        Domi::setStyle('assets/vendor/domi/plugins/jquery-ui-bootstrap/jquery-ui.css');
 
-        Domi::setStyle('vendor/domi/plugins/datetime/jquery-ui-timepicker-addon.css');
-        Domi::setScript('vendor/domi/plugins/datetime/jquery-ui-timepicker-addon.js');
-        Domi::setScript('vendor/domi/plugins/datetime/jquery-ui-timepicker-addon-i18n.js');
+        Domi::setStyle('assets/vendor/domi/plugins/datetime/jquery-ui-timepicker-addon.css');
+        Domi::setScript('assets/vendor/domi/plugins/datetime/jquery-ui-timepicker-addon.js');
+        Domi::setScript('assets/vendor/domi/plugins/datetime/jquery-ui-timepicker-addon-i18n.js');
 
         if (session()->get('calendar') == 'jalali') {
-            Domi::setScript('vendor/domi/plugins/datetime/jalali.js');
+            Domi::setScript('assets/vendor/domi/plugins/datetime/jalali.js');
         }
     },
     'jquery.ui.theme' => function () {
         Domi::setPlugins('jquery-ui');
 
-        Domi::setStyle('vendor/domi/plugins/jquery-ui/jquery-ui.min.css');
-        Domi::setStyle('vendor/domi/plugins/jquery-ui/jquery-ui.theme.min.css');
-        Domi::setStyle('vendor/domi/plugins/jquery-ui/jquery-ui.structure.min.css');
+        Domi::setStyle('assets/vendor/domi/plugins/jquery-ui/jquery-ui.min.css');
+        Domi::setStyle('assets/vendor/domi/plugins/jquery-ui/jquery-ui.theme.min.css');
+        Domi::setStyle('assets/vendor/domi/plugins/jquery-ui/jquery-ui.structure.min.css');
     },
     'sweetalert' => function () {
-        Domi::setScript('vendor/domi/plugins/sweetalert2/dist/sweetalert2.min.js');
-        Domi::setScript('vendor/domi/plugins/sweetalert2/dist/sweetalert2.init.js');
+        Domi::setScript('assets/vendor/domi/plugins/sweetalert2/dist/sweetalert2.min.js');
+        Domi::setScript('assets/vendor/domi/plugins/sweetalert2/dist/sweetalert2.init.js');
 
         if (__('base.direction') == 'rtl') {
-            Domi::setStyle('vendor/domi/plugins/sweetalert2/dist/sweetalert2.rtl.min.css');
+            Domi::setStyle('assets/vendor/domi/plugins/sweetalert2/dist/sweetalert2.rtl.min.css');
         } else {
-            Domi::setStyle('vendor/domi/plugins/sweetalert2/dist/sweetalert2.min.css');
+            Domi::setStyle('assets/vendor/domi/plugins/sweetalert2/dist/sweetalert2.min.css');
         }
 
         Domi::setLocalize('language', [
@@ -76,12 +76,12 @@ return [
         ]);
     },
     'datatable' => function () {
-        Domi::setScript('vendor/domi/plugins/datatables/datatables.bundle.js');
+        Domi::setScript('assets/vendor/domi/plugins/datatables/datatables.bundle.js');
 
         if (__('base.direction') == 'rtl') {
-            Domi::setStyle('vendor/domi/plugins/datatables/datatables.bundle.rtl.css');
+            Domi::setStyle('assets/vendor/domi/plugins/datatables/datatables.bundle.rtl.css');
         } else {
-            Domi::setStyle('vendor/domi/plugins/datatables/datatables.bundle.css');
+            Domi::setStyle('assets/vendor/domi/plugins/datatables/datatables.bundle.css');
         }
 
         Domi::setLocalize('language', [
@@ -112,37 +112,37 @@ return [
         ]);
     },
     'select2' => function () {
-        Domi::setStyle('vendor/domi/plugins/select2/dist/css/select2.min.css');
-        Domi::setScript('vendor/domi/plugins/select2/dist/js/select2.full.min.js');
+        Domi::setStyle('assets/vendor/domi/plugins/select2/dist/css/select2.min.css');
+        Domi::setScript('assets/vendor/domi/plugins/select2/dist/js/select2.full.min.js');
 
-        Domi::setScript('vendor/domi/plugins/select2/dist/js/i18n/' . __('base.lang') . '.js');
+        Domi::setScript('assets/vendor/domi/plugins/select2/dist/js/i18n/' . __('base.lang') . '.js');
     },
     'tree' => function () {
-        Domi::setStyle('vendor/domi/plugins/tree/tree.css');
+        Domi::setStyle('assets/vendor/domi/plugins/tree/tree.css');
     },
     'md5' => function () {
-        Domi::setScript('vendor/domi/plugins/md5/md5.js');
+        Domi::setScript('assets/vendor/domi/plugins/md5/md5.js');
     },
     'cookie' => function () {
-        Domi::setScript('vendor/domi/plugins/cookie/src/js.cookie.js');
+        Domi::setScript('assets/vendor/domi/plugins/cookie/src/js.cookie.js');
     },
     'storage' => function () {
-        Domi::setScript('vendor/domi/plugins/storage/jquery.storage.min.js');
+        Domi::setScript('assets/vendor/domi/plugins/storage/jquery.storage.min.js');
     },
     'fullscreen' => function () {
-        Domi::setScript('vendor/domi/plugins/fullscreen/jquery.fullscreen.js');
+        Domi::setScript('assets/vendor/domi/plugins/fullscreen/jquery.fullscreen.js');
     },
     'owl.carousel' => function () {
-        Domi::setStyle('vendor/domi/plugins/owl.carousel/owl.carousel.min.css');
-        Domi::setStyle('vendor/domi/plugins/owl.carousel/owl.theme.default.min.css');
+        Domi::setStyle('assets/vendor/domi/plugins/owl.carousel/owl.carousel.min.css');
+        Domi::setStyle('assets/vendor/domi/plugins/owl.carousel/owl.theme.default.min.css');
 
-        Domi::setScript('vendor/domi/plugins/owl.carousel/owl.carousel.min.js');
+        Domi::setScript('assets/vendor/domi/plugins/owl.carousel/owl.carousel.min.js');
     },
     'draggable' => function () {
-        Domi::setScript('vendor/domi/plugins/draggable/draggable.bundle.js');
+        Domi::setScript('assets/vendor/domi/plugins/draggable/draggable.bundle.js');
     },
     'tinymce' => function () {
-        Domi::setScript('vendor/domi/plugins/tinymce/tinymce.bundle.js');
+        Domi::setScript('assets/vendor/domi/plugins/tinymce/tinymce.bundle.js');
     }
 
 ];
