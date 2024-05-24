@@ -133,8 +133,8 @@ return [
         Domi::setScript('assets/vendor/domi/plugins/fullscreen/jquery.fullscreen.js');
     },
     'owl.carousel' => function () {
-        Domi::setStyle('assets/vendor/domi/plugins/owl.carousel/owl.carousel.min.css');
-        Domi::setStyle('assets/vendor/domi/plugins/owl.carousel/owl.theme.default.min.css');
+        Domi::setStyle('assets/vendor/domi/plugins/owl.carousel/assets/owl.carousel.min.css');
+        Domi::setStyle('assets/vendor/domi/plugins/owl.carousel/assets/owl.theme.default.min.css');
 
         Domi::setScript('assets/vendor/domi/plugins/owl.carousel/owl.carousel.min.js');
     },
