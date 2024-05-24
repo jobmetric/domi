@@ -220,7 +220,7 @@
  * Dual licensed under the MIT or GPL Version 2 licenses.
  * http://jquery.org/license
  *
- * 
+ *
  *
  * To view and modify this theme, visit http://jqueryui.com/themeroller/
  */
@@ -2500,7 +2500,6 @@ input[type=file]:focus, input[type=checkbox]:focus, select:focus {
     -webkit-box-shadow:none;
     -moz-box-shadow:none;
     box-shadow:none;
-    outline:1px dotted #666;
 }
 
 input[type="text"],
