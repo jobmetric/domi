@@ -167,4 +167,15 @@ return [
 
     'title_mode' => env('DOMI_TITLE_MODE', TitleModeEnum::BOTH()),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Page Limit
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify how many items to display on the website pages.
+    |
+    */
+
+    'page_limit' => env('DOMI_PAGE_LIMIT', 20),
+
 ];

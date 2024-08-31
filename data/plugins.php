@@ -21,7 +21,7 @@ return [
         Domi::setScript('assets/vendor/domi/plugins/jquery.form/jquery.form.min.js');
     },
     'jquery.ui' => function () {
-        Domi::setScript('assets/vendor/domi/plugins/jquery-ui/jquery-ui.js');
+        Domi::setScript('assets/vendor/domi/plugins/jquery-ui/jquery-ui.min.js');
 
         Domi::setStyle('assets/vendor/domi/plugins/jquery-ui-bootstrap/jquery.ui.ie.css');
         Domi::setStyle('assets/vendor/domi/plugins/jquery-ui-bootstrap/jquery-ui.css');
@@ -37,7 +37,6 @@ return [
     'jquery.ui.theme' => function () {
         Domi::setPlugins('jquery-ui');
 
-        Domi::setStyle('assets/vendor/domi/plugins/jquery-ui/jquery-ui.min.css');
         Domi::setStyle('assets/vendor/domi/plugins/jquery-ui/jquery-ui.theme.min.css');
         Domi::setStyle('assets/vendor/domi/plugins/jquery-ui/jquery-ui.structure.min.css');
     },
@@ -54,59 +53,52 @@ return [
         Domi::setLocalize('language', [
             'sweetalert' => [
                 'title' => [
-                    'warning' => trans('domi:base.sweetalert.title.warning'),
-                    'attention' => trans('domi:base.sweetalert.title.attention'),
-                    'permission' => trans('domi:base.sweetalert.title.permission'),
-                    'timer' => trans('domi:base.sweetalert.option.timer'),
-                    'background' => trans('domi:base.sweetalert.option.background'),
+                    'warning' => trans('domi::sweetalert.title.warning'),
+                    'attention' => trans('domi::sweetalert.title.attention'),
+                    'permission' => trans('domi::sweetalert.title.permission'),
                 ],
                 'button' => [
-                    'realized' => trans('domi:base.sweetalert.button.realized'),
-                    'got_it' => trans('domi:base.sweetalert.button.got_it'),
-                    'confirm_button' => trans('domi:base.sweetalert.button.ok'),
-                    'cancel_button' => trans('domi:base.sweetalert.button.cancel'),
-                    'cancel' => trans('domi:base.sweetalert.button.cancel'),
-                    'ok' => trans('domi:base.sweetalert.button.ok'),
-                ],
-                'position' => [
-                    'center' => trans('domi:base.sweetalert.option.position.center'),
-                    'end' => trans('domi:base.sweetalert.option.position.end'),
+                    'realized' => trans('domi::sweetalert.button.realized'),
+                    'got_it' => trans('domi::sweetalert.button.got_it'),
+                    'cancel' => trans('domi::sweetalert.button.cancel'),
+                    'ok' => trans('domi::sweetalert.button.ok'),
                 ],
             ],
         ]);
     },
     'datatable' => function () {
-        Domi::setScript('assets/vendor/domi/plugins/datatables/datatables.bundle.js');
+        Domi::setScript('assets/vendor/domi/plugins/datatables/datatables.bundle.min.js');
 
-        if (__('base.direction') == 'rtl') {
-            Domi::setStyle('assets/vendor/domi/plugins/datatables/datatables.bundle.rtl.css');
+        if (__('domi::base.direction') == 'rtl') {
+            Domi::setStyle('assets/vendor/domi/plugins/datatables/datatables.bundle.rtl.min.css');
         } else {
-            Domi::setStyle('assets/vendor/domi/plugins/datatables/datatables.bundle.css');
+            Domi::setStyle('assets/vendor/domi/plugins/datatables/datatables.bundle.min.css');
         }
 
         Domi::setLocalize('language', [
             'datatable' => [
-                'processing' => trans('domi:base.datatable.processing'),
-                'search' => trans('domi:base.datatable.search'),
-                'lengthMenu' => trans('domi:base.datatable.lengthMenu'),
-                'info' => trans('domi:base.datatable.info'),
-                'infoEmpty' => trans('domi:base.datatable.infoEmpty'),
-                'infoFiltered' => trans('domi:base.datatable.infoFiltered'),
-                'infoPostFix' => trans('domi:base.datatable.infoPostFix'),
-                'loadingRecords' => trans('domi:base.datatable.loadingRecords'),
-                'zeroRecords' => trans('domi:base.datatable.zeroRecords'),
-                'emptyTable' => trans('domi:base.datatable.emptyTable'),
+                'processing' => trans('domi::datatable.processing'),
+                'search' => trans('domi::datatable.search'),
+                'lengthMenu' => trans('domi::datatable.lengthMenu'),
+                'info' => trans('domi::datatable.info'),
+                'infoEmpty' => trans('domi::datatable.infoEmpty'),
+                'infoFiltered' => trans('domi::datatable.infoFiltered'),
+                'infoPostFix' => trans('domi::datatable.infoPostFix'),
+                'loadingRecords' => trans('domi::datatable.loadingRecords'),
+                'zeroRecords' => trans('domi::datatable.zeroRecords'),
+                'emptyTable' => trans('domi::datatable.emptyTable'),
                 'paginate' => [
-                    'first' => trans('domi:base.datatable.paginate_first'),
-                    'previous' => trans('domi:base.datatable.paginate_previous'),
-                    'next' => trans('domi:base.datatable.paginate_next'),
-                    'last' => trans('domi:base.datatable.paginate_last'),
+                    'first' => trans('domi::datatable.paginate_first'),
+                    'previous' => trans('domi::datatable.paginate_previous'),
+                    'next' => trans('domi::datatable.paginate_next'),
+                    'last' => trans('domi::datatable.paginate_last'),
                 ],
             ]
         ]);
 
         Domi::setLocalize('settings', [
             'datatable' => [
+                // @todo: Add more settings
                 'limit' => config('domi.page_limit')
             ]
         ]);
@@ -115,7 +107,7 @@ return [
         Domi::setStyle('assets/vendor/domi/plugins/select2/dist/css/select2.min.css');
         Domi::setScript('assets/vendor/domi/plugins/select2/dist/js/select2.full.min.js');
 
-        Domi::setScript('assets/vendor/domi/plugins/select2/dist/js/i18n/' . __('base.lang') . '.js');
+        Domi::setScript('assets/vendor/domi/plugins/select2/dist/js/i18n/' . __('domi::base.lang') . '.js');
     },
     'tree' => function () {
         Domi::setStyle('assets/vendor/domi/plugins/tree/tree.css');
@@ -124,7 +116,7 @@ return [
         Domi::setScript('assets/vendor/domi/plugins/md5/md5.js');
     },
     'cookie' => function () {
-        Domi::setScript('assets/vendor/domi/plugins/cookie/src/js.cookie.js');
+        Domi::setScript('assets/vendor/domi/plugins/cookie/cookie.js');
     },
     'storage' => function () {
         Domi::setScript('assets/vendor/domi/plugins/storage/jquery.storage.min.js');
@@ -137,9 +129,6 @@ return [
         Domi::setStyle('assets/vendor/domi/plugins/owl.carousel/assets/owl.theme.default.min.css');
 
         Domi::setScript('assets/vendor/domi/plugins/owl.carousel/owl.carousel.min.js');
-    },
-    'draggable' => function () {
-        Domi::setScript('assets/vendor/domi/plugins/draggable/draggable.bundle.js');
     },
     'tinymce' => function () {
         Domi::setScript('assets/vendor/domi/plugins/tinymce/tinymce.bundle.js');
