@@ -58,6 +58,6 @@ class Domi extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'Domi';
+        return \JobMetric\Domi\Domi::class;
     }
 }
