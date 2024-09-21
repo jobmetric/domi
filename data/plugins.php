@@ -44,7 +44,7 @@ return [
         Domi::setScript('assets/vendor/domi/plugins/contextmenu/jquery.contextMenu.js');
         Domi::setScript('assets/vendor/domi/plugins/contextmenu/jquery.ui.position.js');
 
-        if (__('base.direction') == 'rtl') {
+        if (__('domi::base.direction') == 'rtl') {
             Domi::setStyle('assets/vendor/domi/plugins/contextmenu/jquery.contextMenu.rtl.css');
         } else {
             Domi::setStyle('assets/vendor/domi/plugins/contextmenu/jquery.contextMenu.css');
@@ -54,7 +54,7 @@ return [
         Domi::setScript('assets/vendor/domi/plugins/sweetalert2/dist/sweetalert2.min.js');
         Domi::setScript('assets/vendor/domi/plugins/sweetalert2/dist/sweetalert2.init.js');
 
-        if (__('base.direction') == 'rtl') {
+        if (__('domi::base.direction') == 'rtl') {
             Domi::setStyle('assets/vendor/domi/plugins/sweetalert2/dist/sweetalert2.rtl.min.css');
         } else {
             Domi::setStyle('assets/vendor/domi/plugins/sweetalert2/dist/sweetalert2.min.css');
