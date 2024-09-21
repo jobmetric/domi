@@ -40,6 +40,16 @@ return [
         Domi::setStyle('assets/vendor/domi/plugins/jquery-ui/jquery-ui.theme.min.css');
         Domi::setStyle('assets/vendor/domi/plugins/jquery-ui/jquery-ui.structure.min.css');
     },
+    'jquery.contextmenu' => function () {
+        Domi::setScript('assets/vendor/domi/plugins/contextmenu/jquery.contextMenu.js');
+        Domi::setScript('assets/vendor/domi/plugins/contextmenu/jquery.ui.position.js');
+
+        if (__('base.direction') == 'rtl') {
+            Domi::setStyle('assets/vendor/domi/plugins/contextmenu/jquery.contextMenu.rtl.css');
+        } else {
+            Domi::setStyle('assets/vendor/domi/plugins/contextmenu/jquery.contextMenu.css');
+        }
+    },
     'sweetalert' => function () {
         Domi::setScript('assets/vendor/domi/plugins/sweetalert2/dist/sweetalert2.min.js');
         Domi::setScript('assets/vendor/domi/plugins/sweetalert2/dist/sweetalert2.init.js');
@@ -132,6 +142,5 @@ return [
     },
     'tinymce' => function () {
         Domi::setScript('assets/vendor/domi/plugins/tinymce/tinymce.bundle.js');
-    }
-
+    },
 ];
