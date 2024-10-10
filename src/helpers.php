@@ -246,3 +246,16 @@ if (!function_exists('DomiPageType')) {
         Domi::setPageType($type);
     }
 }
+
+if (!function_exists('DomiFooterContent')) {
+    /**
+     * set footer content
+     *
+     * @param string|null $content
+     * @return void
+     */
+    function DomiFooterContent(string|null $content = null): void
+    {
+        Domi::setFooterContent($content);
+    }
+}

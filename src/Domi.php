@@ -584,4 +584,29 @@ class Domi
     {
         return $this->dom['page_type'] ?? null;
     }
+
+    /**
+     * set footer content
+     *
+     * @param string|null $content
+     * @return void
+     */
+    public function setFooterContent(string|null $content = null): void
+    {
+        if (!isset($this->dom['footerContent'])) {
+            $this->dom['footerContent'] = '';
+        }
+
+        $this->dom['footerContent'] .= $content;
+    }
+
+    /**
+     * get footer content
+     *
+     * @return string|null
+     */
+    public function footerContent(): ?string
+    {
+        return $this->dom['footerContent'] ?? null;
+    }
 }

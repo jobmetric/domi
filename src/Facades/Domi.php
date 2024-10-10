@@ -46,6 +46,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static string|null themeColor()
  * @method static void setPageType(string|null $type = 'website')
  * @method static string|null pageType()
+ * @method static void setFooterContent(string|null $content = null)
+ * @method static string|null footerContent()
  *
  * @see \JobMetric\Domi\Domi
  */

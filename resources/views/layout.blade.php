@@ -116,6 +116,9 @@
 <body @yield('body-attribute') >
 @yield('content')
 
+<!-- Footer Content -->
+@domi('footerContent')
+
     <script type="text/javascript">var localize = @domi('renderLocalize')</script>
     <!-- Bottom Script -->
     @yield('script')
