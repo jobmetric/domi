@@ -252,10 +252,12 @@ if (!function_exists('DomiFooterContent')) {
      * set footer content
      *
      * @param string|null $content
+     * @param string $key
+     *
      * @return void
      */
-    function DomiFooterContent(string|null $content = null): void
+    function DomiFooterContent(string|null $content = null, string $key = 'default'): void
     {
-        Domi::setFooterContent($content);
+        Domi::setFooterContent($content, $key);
     }
 }

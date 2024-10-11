@@ -61,6 +61,7 @@ class Domi
             'favicon' => config('domi.favicon'),
             'theme_color' => config('domi.theme_color'),
             'page_type' => config('domi.page_type'),
+            'footerContent' => [],
         ];
 
         // Set Domi
@@ -589,15 +590,21 @@ class Domi
      * set footer content
      *
      * @param string|null $content
+     * @param string $key
+     *
      * @return void
      */
-    public function setFooterContent(string|null $content = null): void
+    public function setFooterContent(string|null $content = null, string $key = 'default'): void
     {
-        if (!isset($this->dom['footerContent'])) {
-            $this->dom['footerContent'] = '';
+        if (!isset($this->dom['footerContent'][$key])) {
+            $this->dom['footerContent'][$key] = null;
         }
 
-        $this->dom['footerContent'] .= $content;
+        if ($key === 'default') {
+            $this->dom['footerContent']['default'] .= $content;
+        } else if ($this->dom['footerContent'][$key] === null) {
+            $this->dom['footerContent'][$key] = $content;
+        }
     }
 
     /**
@@ -607,6 +614,11 @@ class Domi
      */
     public function footerContent(): ?string
     {
-        return $this->dom['footerContent'] ?? null;
+        $footerContent = '';
+        foreach ($this->dom['footerContent'] as $item) {
+            $footerContent .= $item;
+        }
+
+        return $footerContent;
     }
 }
