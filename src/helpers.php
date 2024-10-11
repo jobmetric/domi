@@ -261,3 +261,17 @@ if (!function_exists('DomiFooterContent')) {
         Domi::setFooterContent($content, $key);
     }
 }
+
+if (!function_exists('DomiForgetFooterContent')) {
+    /**
+     * forget footer content
+     *
+     * @param string $key
+     *
+     * @return void
+     */
+    function DomiForgetFooterContent(string $key): void
+    {
+        Domi::forgetFooterContent($key);
+    }
+}

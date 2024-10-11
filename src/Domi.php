@@ -281,16 +281,16 @@ class Domi
      */
     public function setLink(string $rel, string $href, array $items = []): void
     {
-        if(!in_array($rel, RelLinkEnum::values())) {
+        if (!in_array($rel, RelLinkEnum::values())) {
             throw new InvalidRelForLinkTagException($rel);
         }
 
-        if(!Arr::isAssoc($items) && !empty($items)) {
+        if (!Arr::isAssoc($items) && !empty($items)) {
             throw new ArrayNotAssocException;
         }
 
         foreach ($items as $key => $value) {
-            if(!in_array($key, ['crossorigin', 'href', 'hreflang', 'media', 'referrerpolicy', 'sizes', 'title', 'type', 'integrity'])) {
+            if (!in_array($key, ['crossorigin', 'href', 'hreflang', 'media', 'referrerpolicy', 'sizes', 'title', 'type', 'integrity'])) {
                 throw new InvalidAttributeForLinkTagException;
             }
         }
@@ -608,17 +608,30 @@ class Domi
     }
 
     /**
+     * forget footer content
+     *
+     * @param string $key
+     *
+     * @return void
+     */
+    public function forgetFooterContent(string $key): void
+    {
+        if ($key === 'default') {
+            return;
+        }
+
+        if (isset($this->dom['footerContent'][$key])) {
+            unset($this->dom['footerContent'][$key]);
+        }
+    }
+
+    /**
      * get footer content
      *
      * @return string|null
      */
     public function footerContent(): ?string
     {
-        $footerContent = '';
-        foreach ($this->dom['footerContent'] as $item) {
-            $footerContent .= $item;
-        }
-
-        return $footerContent;
+        return implode('', $this->dom['footerContent']);
     }
 }

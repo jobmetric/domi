@@ -2,7 +2,6 @@
 
 namespace JobMetric\Domi\Facades;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -47,6 +46,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void setPageType(string|null $type = 'website')
  * @method static string|null pageType()
  * @method static void setFooterContent(string|null $content = null, string $key = 'default')
+ * @method static void forgetFooterContent(string $key)
  * @method static string|null footerContent()
  *
  * @see \JobMetric\Domi\Domi

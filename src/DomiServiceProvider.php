@@ -40,5 +40,9 @@ class DomiServiceProvider extends PackageCoreServiceProvider
         Blade::if('isDomi', function ($expression) {
             return \JobMetric\Domi\Facades\Domi::isCall($expression);
         });
+
+        Blade::directive('domiForgetFooterContent', function ($key) {
+            return "<?php echo \\JobMetric\\Domi\\Facades\\Domi::forgetFooterContent($key); ?>";
+        });
     }
 }
