@@ -5,6 +5,7 @@ namespace JobMetric\Domi;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Arr;
+use InvalidArgumentException;
 use JobMetric\Domi\Enums\PageTypeEnum;
 use JobMetric\Domi\Enums\RelLinkEnum;
 use JobMetric\Domi\Enums\ScriptPositionEnum;
@@ -62,6 +63,7 @@ class Domi
             'theme_color' => config('domi.theme_color'),
             'page_type' => config('domi.page_type'),
             'footerContent' => [],
+            'modal' => [],
         ];
 
         // Set Domi
@@ -633,5 +635,79 @@ class Domi
     public function footerContent(): ?string
     {
         return implode('', $this->dom['footerContent']);
+    }
+
+    /**
+     * add modal
+     *
+     * @param string $id modal id
+     * @param string|null $title modal title
+     * @param string|null $content modal content
+     * @param string|null $footer modal footer
+     * @param array $options modal options
+     *
+     * @return void
+     * @throws Throwable
+     */
+    public function addModal(string $id, string $title = null, string $content = null, string $footer = null, array $options = []): void
+    {
+        // Remove 'modal-' prefix if it exists
+        if (str_starts_with($id, 'modal-')) {
+            $id = substr($id, 6);
+        }
+
+        // Validate id format
+        if (!preg_match('/^[a-z0-9\-]+$/', $id)) {
+            throw new InvalidArgumentException("The id format is invalid. It must be dash-case and contain no spaces.");
+        }
+
+        if (!array_key_exists($id, $this->dom['modal'])) {
+            $size = null;
+            if (isset($options['size'])) {
+                $size = match ($options['size']) {
+                    'sm' => 'modal-sm',
+                    'lg' => 'modal-lg',
+                    'xl' => 'modal-xl',
+                    default => null,
+                };
+            }
+
+            $fullscreen = null;
+            if (isset($options['fullscreen'])) {
+                if ($options['fullscreen'] === true) {
+                    $fullscreen = 'modal-fullscreen';
+                } else {
+                    $fullscreen = match ($options['fullscreen']) {
+                        'sm' => 'modal-fullscreen-sm-down',
+                        'md' => 'modal-fullscreen-md-down',
+                        'lg' => 'modal-fullscreen-lg-down',
+                        'xl' => 'modal-fullscreen-xl-down',
+                        'xxl' => 'modal-fullscreen-xxl-down',
+                        default => null,
+                    };
+                }
+            }
+
+            $this->dom['modal'][$id] = [
+                'title' => $title,
+                'header' => (isset($options['header']) && $options['header'] !== '') ? $options['header'] : null,
+                'content' => $content,
+                'footer' => $footer,
+                'scrollable' => (isset($options['scrollable']) && $options['scrollable'] === true) ? 'modal-dialog-scrollable' : null,
+                'centered' => (isset($options['centered']) && $options['centered'] === true) ? 'modal-dialog-centered' : null,
+                'size' => $size,
+                'fullscreen' => $fullscreen,
+            ];
+        }
+    }
+
+    /**
+     * get modal
+     *
+     * @return array
+     */
+    public function modal(): array
+    {
+        return $this->dom['modal'];
     }
 }

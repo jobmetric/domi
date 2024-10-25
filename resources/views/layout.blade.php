@@ -120,6 +120,7 @@
 <!-- Footer Content -->
 @domi('footerContent')
 @endisDomi
+@include('domi::modal')
 
     <script type="text/javascript">var localize = @domi('renderLocalize')</script>
     <!-- Bottom Script -->

@@ -48,6 +48,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static void setFooterContent(string|null $content = null, string $key = 'default')
  * @method static void forgetFooterContent(string $key)
  * @method static string|null footerContent()
+ * @method static void addModal(string $id, string $title = null, string $content = null, string $footer = null, array $options = [])
+ * @method static array modal()
  *
  * @see \JobMetric\Domi\Domi
  */
