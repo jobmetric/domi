@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="{{ env('app_url') }}"/>
+    <base href="{{ env('APP_URL') }}"/>
 
     @if(config('domi.title_mode') == \JobMetric\Domi\Enums\TitleModeEnum::TITLE())
 <title>@domi('title')</title>
