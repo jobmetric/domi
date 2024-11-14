@@ -275,3 +275,22 @@ if (!function_exists('DomiForgetFooterContent')) {
         Domi::forgetFooterContent($key);
     }
 }
+
+if (!function_exists('DomiAddModal')) {
+    /**
+     * add modal
+     *
+     * @param string $id
+     * @param string|null $title
+     * @param string|null $content
+     * @param string|null $footer
+     * @param array $options
+     *
+     * @return void
+     * @throws Throwable
+     */
+    function DomiAddModal(string $id, string $title = null, string $content = null, string $footer = null, array $options = []): void
+    {
+        Domi::addModal($id, $title, $content, $footer, $options);
+    }
+}
