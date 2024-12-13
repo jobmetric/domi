@@ -5,6 +5,79 @@
 
 var $ = jQuery.noConflict();
 
+function jd_to_gregorian(jd) {
+    var j, i, l, n, g, dg, c, s, r, v, u, y, m, d;
+
+    j = jd + 0.5;
+    j = Math.floor(j);
+    l = j + 68569;
+    n = Math.floor((4 * l) / 146097);
+    l = l - Math.floor((146097 * n + 3) / 4);
+    i = Math.floor((4000 * (l + 1)) / 1461001);
+    l = l - Math.floor((1461 * i) / 4) + 31;
+    j = Math.floor((80 * l) / 2447);
+    d = l - Math.floor((2447 * j) / 80);
+    l = Math.floor(j / 11);
+    m = j + 2 - 12 * l;
+    y = 100 * (n - 49) + i + l;
+
+    return [y, m, d];
+}
+
+function persian_to_jd(year, month, day) {
+    var epbase, epyear;
+
+    epbase = year - (year >= 0 ? 474 : 473);
+    epyear = 474 + (epbase % 2820);
+
+    return day +
+        ((month <= 7) ?
+            ((month - 1) * 31) :
+            (((month - 1) * 30) + 6)) +
+        Math.floor((epyear * 682 - 110) / 2816) +
+        (epyear - 1) * 365 +
+        Math.floor(epbase / 2820) * 1029983 +
+        (1948320.5 - 1);
+}
+
+function jd_to_persian(jd) {
+    var depoch, cycle, cyear, ycycle, aux1, aux2, yday, year, month, day;
+
+    jd = Math.floor(jd) + 0.5;
+    depoch = jd - persian_to_jd(475, 1, 1);
+    cycle = Math.floor(depoch / 1029983);
+    cyear = depoch % 1029983;
+
+    if (cyear === 1029982) {
+        ycycle = 2820;
+    } else {
+        aux1 = Math.floor(cyear / 366);
+        aux2 = cyear % 366;
+        ycycle = Math.floor((2134 * aux1 + 2816 * aux2 + 2815) / 1028522) + aux1 + 1;
+    }
+
+    year = ycycle + 2820 * cycle + 474;
+    if (year <= 0) {
+        year--;
+    }
+
+    yday = jd - persian_to_jd(year, 1, 1) + 1;
+    month = (yday <= 186) ? Math.ceil(yday / 31) : Math.ceil((yday - 186) / 30) + 6;
+    day = jd - persian_to_jd(year, month, 1) + 1;
+
+    return [year, month, day];
+}
+
+function gregorian_to_jd(year, month, day) {
+    var a = Math.floor((14 - month) / 12);
+    var y = year + 4800 - a;
+    var m = month + 12 * a - 3;
+
+    return day + Math.floor((153 * m + 2) / 5) +
+        365 * y + Math.floor(y / 4) - Math.floor(y / 100) +
+        Math.floor(y / 400) - 32045;
+}
+
 (function($) {
 
 	function JalaliCalendar() {
