@@ -25,17 +25,21 @@ return [
 
         Domi::setStyle('assets/vendor/domi/plugins/jquery-ui-bootstrap/jquery.ui.ie.css');
         Domi::setStyle('assets/vendor/domi/plugins/jquery-ui-bootstrap/jquery-ui.css');
+    },
+    'datepicker' => function () {
+        Domi::setPlugins('jquery.ui');
 
         Domi::setStyle('assets/vendor/domi/plugins/datetime/jquery-ui-timepicker-addon.css');
         Domi::setScript('assets/vendor/domi/plugins/datetime/jquery-ui-timepicker-addon.js');
         Domi::setScript('assets/vendor/domi/plugins/datetime/jquery-ui-timepicker-addon-i18n.js');
+    },
+    'datepicker.jalali' => function () {
+        Domi::setPlugins('datepicker');
 
-        if (session()->get('calendar') == 'jalali') {
-            Domi::setScript('assets/vendor/domi/plugins/datetime/jalali.js');
-        }
+        Domi::setScript('assets/vendor/domi/plugins/datetime/jalali.js');
     },
     'jquery.ui.theme' => function () {
-        Domi::setPlugins('jquery-ui');
+        Domi::setPlugins('jquery.ui');
 
         Domi::setStyle('assets/vendor/domi/plugins/jquery-ui/jquery-ui.theme.min.css');
         Domi::setStyle('assets/vendor/domi/plugins/jquery-ui/jquery-ui.structure.min.css');
