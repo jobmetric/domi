@@ -2139,27 +2139,26 @@ body .ui-tooltip {
  * http://jqueryui.com/datepicker/
  */
 .ui-datepicker {
-    width:17em;
+    width:22em;
     padding:.2em .2em 0;
     display:none;
 }
 
 .ui-datepicker .ui-datepicker-header {
     position:relative;
-    padding:.2em 0;
-    border:0px;
+    border:0;
     font-weight:bold;
     width:100%;
-    padding:4px 0;
+    padding:6px 0;
     background-color:#f5f5f5;
     color:#808080;
 }
 
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
     position:absolute;
-    top:7px;
-    width:1.8em;
-    height:1.8em;
+    top:10px;
+    width:2.2em;
+    height:2.8em;
 }
 
 .ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { /*top: 1px;*/
@@ -2198,7 +2197,7 @@ body .ui-tooltip {
     font-size:10px;
     margin:1px 0;
     border:1px solid #e8e8e8;
-    padding:2px 2px;
+    padding:10px 5px;
     border-radius:5px;
 }
 
@@ -2400,7 +2399,7 @@ body .ui-tooltip {
     border:0px;
     background:none;
     margin-bottom:0px;
-    padding:5px;
+    padding:8px;
     color:gray;
     text-align:center;
     filter:none;
