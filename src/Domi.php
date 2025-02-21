@@ -457,7 +457,9 @@ class Domi
 
         event(new AddPluginEvent);
 
-        foreach ($parameters[0] as $parameter) {
+        $pluginList = is_array($parameters[0]) ? $parameters[0] : [$parameters[0]];
+
+        foreach ($pluginList as $parameter) {
             if (!isset($this->dom['plugin_counter'][$parameter])) {
                 $this->dom['plugin_counter'][$parameter] = true;
 
