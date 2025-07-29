@@ -2,7 +2,7 @@
 
 namespace JobMetric\Domi\Enums;
 
-use JobMetric\PackageCore\Enums\EnumToArray;
+use JobMetric\PackageCore\Enums\EnumMacros;
 
 /**
  * @method static INDEX()
@@ -23,7 +23,7 @@ use JobMetric\PackageCore\Enums\EnumToArray;
  * @method static MAX_VIDEO_PREVIEW()
  */
 enum RobotsEnum : string {
-    use EnumToArray;
+    use EnumMacros;
 
     case INDEX = "index";
     case NOINDEX = "noindex";

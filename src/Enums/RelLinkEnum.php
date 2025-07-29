@@ -2,7 +2,7 @@
 
 namespace JobMetric\Domi\Enums;
 
-use JobMetric\PackageCore\Enums\EnumToArray;
+use JobMetric\PackageCore\Enums\EnumMacros;
 
 /**
  * @method static ALTERNATE
@@ -22,7 +22,7 @@ use JobMetric\PackageCore\Enums\EnumToArray;
  * @method static STYLESHEET()
  */
 enum RelLinkEnum : string {
-    use EnumToArray;
+    use EnumMacros;
 
     case ALTERNATE = "alternate";
     case AUTHOR = "author";

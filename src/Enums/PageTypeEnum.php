@@ -2,7 +2,7 @@
 
 namespace JobMetric\Domi\Enums;
 
-use JobMetric\PackageCore\Enums\EnumToArray;
+use JobMetric\PackageCore\Enums\EnumMacros;
 
 /**
  * @method static WEBSITE()
@@ -18,7 +18,7 @@ use JobMetric\PackageCore\Enums\EnumToArray;
  * @method static APPLICATION()
  */
 enum PageTypeEnum : string {
-    use EnumToArray;
+    use EnumMacros;
 
     case WEBSITE = "website";
     case ARTICLE = "article";

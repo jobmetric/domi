@@ -2,14 +2,14 @@
 
 namespace JobMetric\Domi\Enums;
 
-use JobMetric\PackageCore\Enums\EnumToArray;
+use JobMetric\PackageCore\Enums\EnumMacros;
 
 /**
  * @method static TOP()
  * @method static BOTTOM()
  */
 enum ScriptPositionEnum : string {
-    use EnumToArray;
+    use EnumMacros;
 
     case TOP = "top";
     case BOTTOM = "bottom";
