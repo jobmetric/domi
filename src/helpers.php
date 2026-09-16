@@ -132,7 +132,7 @@ if (!function_exists('DomiStyle')) {
      * @param string|null $crossOrigin
      * @return void
      */
-    function DomiStyle(string $href, string $media = null, string $integrity = null, string $crossOrigin = null): void
+    function DomiStyle(string $href, ?string $media = null, ?string $integrity = null, ?string $crossOrigin = null): void
     {
         Domi::setStyle($href, $media, $integrity, $crossOrigin);
     }
@@ -163,7 +163,7 @@ if (!function_exists('DomiLocalize')) {
      * @param array|string $l10n
      * @return void
      */
-    function DomiLocalize(string $key = null, array|string $l10n = []): void
+    function DomiLocalize(?string $key = null, array|string $l10n = []): void
     {
         Domi::setLocalize($key, $l10n);
     }
@@ -289,7 +289,7 @@ if (!function_exists('DomiAddModal')) {
      * @return void
      * @throws Throwable
      */
-    function DomiAddModal(string $id, string $title = null, string $content = null, string $footer = null, array $options = []): void
+    function DomiAddModal(string $id, ?string $title = null, ?string $content = null, ?string $footer = null, array $options = []): void
     {
         Domi::addModal($id, $title, $content, $footer, $options);
     }

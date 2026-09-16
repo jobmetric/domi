@@ -323,7 +323,7 @@ class Domi
      * @return void
      * @throws Throwable
      */
-    public function setStyle(string $href, string $media = null, string $integrity = null, string $crossOrigin = null): void
+    public function setStyle(string $href, ?string $media = null, ?string $integrity = null, ?string $crossOrigin = null): void
     {
         $this->setLink('stylesheet', $href, [
             'media' => $media,
@@ -379,7 +379,7 @@ class Domi
      * @param array|string $l10n
      * @return void
      */
-    public function setLocalize(string $key = null, array|string $l10n = []): void
+    public function setLocalize(?string $key = null, array|string $l10n = []): void
     {
         if ($key) {
             if (is_array($l10n)) {
@@ -651,7 +651,7 @@ class Domi
      * @return void
      * @throws Throwable
      */
-    public function addModal(string $id, string $title = null, string $content = null, string $footer = null, array $options = []): void
+    public function addModal(string $id, ?string $title = null, ?string $content = null, ?string $footer = null, array $options = []): void
     {
         // Remove 'modal-' prefix if it exists
         if (str_starts_with($id, 'modal-')) {

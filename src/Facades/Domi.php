@@ -25,11 +25,11 @@ use Illuminate\Support\Facades\Facade;
  * @method static string|null robots()
  * @method static void setLink(string $rel, string $href, array $items = [])
  * @method static array link()
- * @method static void setStyle(string $href, string $media = null, string $integrity = null, string $crossOrigin = null)
+ * @method static void setStyle(string $href, ?string $media = null, ?string $integrity = null, ?string $crossOrigin = null)
  * @method static void setScript(string $src, string $type = 'application/javascript', bool $async = false, bool $defer = false, string $position = 'bottom')
  * @method static array topScript()
  * @method static array bottomScript()
- * @method static void setLocalize(string $key = null, array|string $l10n = [])
+ * @method static void setLocalize(?string $key = null, array|string $l10n = [])
  * @method static array localize()
  * @method static string renderLocalize()
  * @method static void setPlugin(string $key, callable $function)
@@ -48,7 +48,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void setFooterContent(string|null $content = null, string $key = 'default')
  * @method static void forgetFooterContent(string $key)
  * @method static string|null footerContent()
- * @method static void addModal(string $id, string $title = null, string $content = null, string $footer = null, array $options = [])
+ * @method static void addModal(string $id, ?string $title = null, ?string $content = null, ?string $footer = null, array $options = [])
  * @method static array modal()
  *
  * @see \JobMetric\Domi\Domi
