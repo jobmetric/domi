@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.14.2
+
+- Allow the bundled DataTable plugin to initialize without a theme-specific KTUtil global. Preserve KTUtil.isRTL when supplied; otherwise read the document direction.
+
 ## 1.14.1
 
 - Use PackageCore's `EnumMacros` trait for Domi enums and require PackageCore 1.20 or later.
